@@ -1,6 +1,6 @@
 package com.example.fullstack_trainer_backend.question.option;
 
-import org.aspectj.weaver.patterns.TypePatternQuestions.Question;
+import com.example.fullstack_trainer_backend.question.Question;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -12,22 +12,3 @@ export default defineConfig({
   },
   base: "/fullstack-trainer/",
 });
-
-/*interface ViteConfigInterface {
-  mode: string;
-}
-export default ({ mode }: ViteConfigInterface) => {
-  process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
-  console.log(process.env.BASEURL);
-
-  return defineConfig({
-    plugins: [react()],
-    test: {
-      globals: true,
-      environment: "jsdom",
-      setupFiles: ["src/__tests__/setup.ts"],
-    },
-    base: process.env.BASEURL,
-  });
-};
-*/
