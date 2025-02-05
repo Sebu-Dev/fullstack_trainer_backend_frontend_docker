@@ -5,8 +5,8 @@ import java.util.List;
 import com.example.fullstack_trainer_backend.question.option.Option;
 
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,12 +25,10 @@ public class Question {
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Option> options;
-
-    private String difficulty;
-
-    @ElementCollection
+    @Enumerated
+    private DifficultyEnum difficulty;
+    @OneToMany
     private List<String> category;
-
     private String explanation;
     private String imageUrl;
     private Integer maxPoints;

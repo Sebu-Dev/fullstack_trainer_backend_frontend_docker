@@ -1,0 +1,50 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:16.2
+    container_name: PostgreSQL
+    restart: always
+    environment:
+      POSTGRES_DB: fullstack_trainer_db
+      POSTGRES_USER: flo
+      POSTGRES_PASSWORD: swordfish
+      PGDATA: /var/lib/postgresql/data
+
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - seal-net
+  backend:
+    container_name: Fullstack_trainer_backend
+    build:
+      args:
+        - SPRING_DATASOURCE_URL=jdbc:postgresql://PostgreSQL:5432/fullstack_trainer_db
+      context: ../fullstack-trainer-backend/
+      dockerfile: dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - seal-net
+    depends_on:
+      - db
+
+  frontend:
+    container_name: Fullstack_trainer_frontend
+    build:
+      context: ../fullstack-trainer-frontend/
+      dockerfile: dockerfile
+    ports:
+      - "3000:80"
+    networks:
+      - seal-net
+    depends_on:
+      - backend
+
+networks:
+  seal-net:
+
+volumes:
+  db-data:
