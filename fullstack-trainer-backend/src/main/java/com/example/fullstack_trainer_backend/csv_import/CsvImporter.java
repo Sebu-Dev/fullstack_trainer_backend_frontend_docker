@@ -1,3 +1,5 @@
+package com.example.fullstack_trainer_backend.csv_import;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
