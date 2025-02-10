@@ -28,4 +28,9 @@ public class QuestionController {
         return questionRepository.save(question);
     }
 
+    @PostMapping("test")
+    public void test() {
+        System.out.println("angekommen");
+    }
+
 }

@@ -1,0 +1,13 @@
+# JDBC URL für Azure SQL Server
+spring.datasource.url=jdbc:sqlserver://fullstacktrainer.database.windows.net:1433;databaseName=QuizDataBase
+
+# Dein Benutzername und Passwort für den Zugriff auf die SQL Server-Datenbank
+spring.datasource.username=quizmaster
+spring.datasource.password=swordfish!EXTREME
+
+# Hibernate-Einstellungen
+spring.jpa.hibernate.ddl-auto=create
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.SQLServerDialect
+
+# Server-Port
+server.port=8080

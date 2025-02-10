@@ -1,50 +1,51 @@
 version: "3.8"
 
 services:
+  # Datenbank
   db:
     image: postgres:16.2
     container_name: PostgreSQL
     restart: always
     environment:
-      POSTGRES_DB: fullstack_trainer_db
-      POSTGRES_USER: flo
-      POSTGRES_PASSWORD: swordfish
+      POSTGRES_DB: ${POSTGRES_DB} # aus .env geladen
+      POSTGRES_USER: ${POSTGRES_USER} # aus .env geladen
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD} # aus .env geladen
       PGDATA: /var/lib/postgresql/data
-
     volumes:
       - db-data:/var/lib/postgresql/data
-    ports:
-      - 5432:5432
     networks:
-      - seal-net
+      - app-net
+
+  # Backend
   backend:
     container_name: Fullstack_trainer_backend
     build:
-      args:
-        - SPRING_DATASOURCE_URL=jdbc:postgresql://PostgreSQL:5432/fullstack_trainer_db
       context: ../fullstack-trainer-backend/
-      dockerfile: dockerfile
-    ports:
-      - "8080:8080"
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/${POSTGRES_DB} # aus .env geladen
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER} # aus .env geladen
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD} # aus .env geladen
+      SPRING_JPA_HIBERNATE_DDL_AUTO: ${SPRING_JPA_HIBERNATE_DDL_AUTO} # aus .env geladen
     networks:
-      - seal-net
+      - app-net
     depends_on:
       - db
 
+  # Frontend
   frontend:
     container_name: Fullstack_trainer_frontend
     build:
       context: ../fullstack-trainer-frontend/
-      dockerfile: dockerfile
-    ports:
-      - "3000:80"
+      dockerfile: Dockerfile
     networks:
-      - seal-net
+      - app-net
     depends_on:
       - backend
 
 networks:
-  seal-net:
+  app-net:
+    driver: bridge
 
 volumes:
   db-data:
