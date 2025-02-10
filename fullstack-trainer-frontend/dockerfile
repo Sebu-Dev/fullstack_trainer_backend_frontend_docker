@@ -4,12 +4,12 @@ FROM node:21 AS builder
 WORKDIR /app
 
 # Kopiere package.json und installiere Abhängigkeiten
-COPY package.json ./
-RUN npm install
+COPY package.json package-lock.json ./
+RUN rm -rf node_modules && npm install
 
 # Kopiere den Rest des Projekts und führe den Build aus
 COPY . .
-
+RUN rm -rf dist && npm run build
 # Baue die Anwendung
 RUN npm run build
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { PrimaryButton, SecondaryButton } from "sebu-dev-react-lib";
+import QuestionSyncButton from "../../api/useQuestionSync";
 import { useQuizNavigation } from "../../routes/useQuizNavigation";
 import useQuizStore from "../../store/QuizStore";
 import { CsvDownloadButton } from "../CsvDownloadButton";
@@ -64,6 +65,7 @@ export const LandingPage = () => {
           </div>
         </div>
         <CsvDownloadButton setToggleDownload={setToggleDownload} />
+        <QuestionSyncButton></QuestionSyncButton>
       </div>
     </div>
   );
