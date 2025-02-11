@@ -2,8 +2,22 @@ import axios from "axios";
 import { FaFile } from "react-icons/fa";
 import { IconButton } from "sebu-dev-react-lib";
 import useQuizStore from "../store/QuizStore";
+
 const QuestionSyncButton = () => {
   const questionList = useQuizStore((state) => state.questionList);
+
+  const mapDifficultyToEnum = (difficulty: string | undefined): string | null => {
+    switch (difficulty?.toLowerCase()) {
+      case "easy":
+        return "EASY";
+      case "medium":
+        return "MEDIUM";
+      case "hard":
+        return "HARD";
+      default:
+        return null;
+    }
+  };
 
   const handleSync = async () => {
     if (questionList.length === 0) {
@@ -11,9 +25,20 @@ const QuestionSyncButton = () => {
       return;
     }
 
+    // Vor dem Senden sicherstellen, dass optionale Felder leer oder null sind und die difficulty korrekt zugeordnet wird
+    const preparedQuestions = questionList.map((question) => {
+      return {
+        ...question,
+        difficulty: mapDifficultyToEnum(question.difficulty) ?? null, // Umwandlung der Difficulty
+        explanation: question.explanation ?? null,
+        imageUrl: question.imageUrl ?? null,
+        maxPoints: question.maxPoints ?? null,
+      };
+    });
+
     try {
-      console.log(questionList);
-      await axios.post("http://localhost:8080/questions/bulk");
+      console.log(preparedQuestions);
+      await axios.post("http://localhost:8080/questions/bulk", preparedQuestions);
       console.log("Fragen erfolgreich in die Datenbank geladen!");
     } catch (error) {
       console.error("Fehler beim Senden der Fragen:", error);
@@ -21,15 +46,13 @@ const QuestionSyncButton = () => {
   };
 
   return (
-    <>
-      <IconButton
-        handleOnClick={handleSync}
-        animationHover
-        className="bg-transparent"
-        size="text-2xl"
-        icon={<FaFile />}
-      ></IconButton>
-    </>
+    <IconButton
+      handleOnClick={handleSync}
+      animationHover
+      className="bg-transparent"
+      size="text-2xl"
+      icon={<FaFile />}
+    />
   );
 };
 

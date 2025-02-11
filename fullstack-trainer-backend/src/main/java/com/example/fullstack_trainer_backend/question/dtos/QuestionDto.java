@@ -4,76 +4,53 @@ import java.util.List;
 
 public class QuestionDto {
     private String text;
-    private String topic;
-    private List<AnswerDto> options;
+    private List<String> category;  
     private String difficulty;
-    private List<CategoryDto> category;
+    private List<OptionDto> options;  
     private String explanation;
     private String imageUrl;
     private Integer maxPoints;
-
-    // Getter und Setter
     public String getText() {
         return text;
     }
-
     public void setText(String text) {
         this.text = text;
     }
-
-    public String getTopic() {
-        return topic;
+    public List<String> getCategory() {
+        return category;
     }
-
-    public void setTopic(String topic) {
-        this.topic = topic;
+    public void setCategory(List<String> category) {
+        this.category = category;
     }
-
-    public List<AnswerDto> getOptions() {
-        return options;
-    }
-
-    public void setOptions(List<AnswerDto> options) {
-        this.options = options;
-    }
-
     public String getDifficulty() {
         return difficulty;
     }
-
     public void setDifficulty(String difficulty) {
         this.difficulty = difficulty;
     }
-
-    public List<CategoryDto> getCategory() {
-        return category;
+    public List<OptionDto> getOptions() {
+        return options;
     }
-
-    public void setCategory(List<CategoryDto> category) {
-        this.category = category;
+    public void setOptions(List<OptionDto> options) {
+        this.options = options;
     }
-
     public String getExplanation() {
         return explanation;
     }
-
     public void setExplanation(String explanation) {
         this.explanation = explanation;
     }
-
     public String getImageUrl() {
         return imageUrl;
     }
-
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
-
     public Integer getMaxPoints() {
         return maxPoints;
     }
-
     public void setMaxPoints(Integer maxPoints) {
         this.maxPoints = maxPoints;
     }
+
 }

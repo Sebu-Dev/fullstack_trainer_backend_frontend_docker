@@ -55,22 +55,19 @@ public class QuestionController {
         return ResponseEntity.ok("Frage gelöscht");
     }
 
-    @PostMapping("/bulk1")
-    public ResponseEntity<?> bulkCreateQuestions(@RequestBody List<QuestionDto> questionsDTO) {
+    @PostMapping("/bulk")
+    public ResponseEntity<?> bulkCreateQuestions(@RequestBody List<Object> questionsDTO) {
+
+        questionsDTO.forEach(System.out::print);
         try {
-            List<Question> questions = questionsDTO.stream()
+           /*  List<Question> questions = questionsDTO.stream()
                     .map(questionService::convertToEntity)
-                    .collect(Collectors.toList());
-            return ResponseEntity.ok(questions);
+                    .collect(Collectors.toList()); */
+            return ResponseEntity.ok("questions");
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Fehler bei der Anfrage: " + e.getMessage());
         }
     }
 
-    @PostMapping("/bulk")
-    public ResponseEntity<?> test() {
 
-        return ResponseEntity.badRequest().body("TEST");
-
-    }
 }

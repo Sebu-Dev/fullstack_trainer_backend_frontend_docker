@@ -1,6 +1,6 @@
 package com.example.fullstack_trainer_backend.question.dtos;
 
-public class AnswerDto {
+public class OptionDto {
     private String text;
     private boolean isCorrect;
 

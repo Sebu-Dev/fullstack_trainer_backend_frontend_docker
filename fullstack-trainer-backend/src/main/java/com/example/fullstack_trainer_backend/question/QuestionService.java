@@ -8,7 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.example.fullstack_trainer_backend.question.answer.Answer;
 import com.example.fullstack_trainer_backend.question.category.Category;
-import com.example.fullstack_trainer_backend.question.dtos.AnswerDto;
+
+import com.example.fullstack_trainer_backend.question.dtos.OptionDto;
 import com.example.fullstack_trainer_backend.question.dtos.CategoryDto;
 import com.example.fullstack_trainer_backend.question.dtos.QuestionDto;
 
@@ -34,7 +35,7 @@ public class QuestionService {
     public Question updateQuestion(Long id, QuestionDto questionDTO) {
         Question existingQuestion = getQuestionById(id);
         existingQuestion.setText(questionDTO.getText());
-        existingQuestion.setTopic(questionDTO.getTopic());
+        existingQuestion.setTopic(questionDTO.getText());
         existingQuestion.setDifficulty(DifficultyEnum.valueOf(questionDTO.getDifficulty()));
         existingQuestion.setExplanation(questionDTO.getExplanation());
         existingQuestion.setImageUrl(questionDTO.getImageUrl());
@@ -44,9 +45,14 @@ public class QuestionService {
                 .map(this::convertAnswerToEntity)
                 .collect(Collectors.toList()));
 
-        existingQuestion.setCategory(questionDTO.getCategory().stream()
-                .map(this::convertCategoryToEntity)
+                existingQuestion.setCategory(questionDTO.getCategory().stream()
+                .map(cat -> {
+                    Category category = new Category();
+                    category.setCategory(cat);
+                    return category;
+                })
                 .collect(Collectors.toList()));
+        
 
         return questionRepository.save(existingQuestion);
     }
@@ -58,24 +64,31 @@ public class QuestionService {
     public Question convertToEntity(QuestionDto questionDTO) {
         Question question = new Question();
         question.setText(questionDTO.getText());
-        question.setTopic(questionDTO.getTopic());
         question.setDifficulty(DifficultyEnum.valueOf(questionDTO.getDifficulty()));
         question.setExplanation(questionDTO.getExplanation());
         question.setImageUrl(questionDTO.getImageUrl());
         question.setMaxPoints(questionDTO.getMaxPoints());
-
+        
+        // Mapping der Optionen
         question.setOptions(questionDTO.getOptions().stream()
                 .map(this::convertAnswerToEntity)
                 .collect(Collectors.toList()));
-
+        
+        // Mapping der Kategorien: Hier wird aus String eine Category erzeugt
         question.setCategory(questionDTO.getCategory().stream()
-                .map(this::convertCategoryToEntity)
-                .collect(Collectors.toList()));
+        .map(this::convertCategoryToEntity)
+        .collect(Collectors.toList()));
 
         return question;
     }
+    public Category convertCategoryToEntity(String categoryName) {
+        Category category = new Category();
+        category.setCategory(categoryName);
+        return category;
+    }
+    
 
-    public Answer convertAnswerToEntity(AnswerDto answerDTO) {
+    public Answer convertAnswerToEntity(OptionDto answerDTO) {
         Answer answer = new Answer();
         answer.setText(answerDTO.getText());
         answer.setIs_correct(answerDTO.isCorrect());
@@ -84,7 +97,7 @@ public class QuestionService {
 
     public Category convertCategoryToEntity(CategoryDto categoryDTO) {
         Category category = new Category();
-        category.setCategory(categoryDTO.getName());
+        category.setCategory(categoryDTO.getCategory());
         return category;
     }
 }

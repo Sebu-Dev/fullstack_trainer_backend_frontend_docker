@@ -1,14 +1,14 @@
 package com.example.fullstack_trainer_backend.question.dtos;
 
 public class CategoryDto {
-    private String name;
+    private String category;
 
     // Getter und Setter
-    public String getName() {
-        return name;
+    public String getCategory() {
+        return category;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCategory(String name) {
+        this.category = name;
     }
 }
