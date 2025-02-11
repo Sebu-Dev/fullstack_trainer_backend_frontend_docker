@@ -13,7 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedOrigins("*") // Erstmal alles zulassen zum Testen
                 .allowedMethods("*")
                 .allowedHeaders("*")
-                .allowCredentials(true);
+                /* .allowCredentials(true) */;
     }
 
     /*
