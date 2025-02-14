@@ -32,7 +32,7 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT",unique = true)
     private String text;
 
     @Enumerated(EnumType.STRING)

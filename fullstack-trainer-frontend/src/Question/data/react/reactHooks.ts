@@ -224,39 +224,8 @@ export const reactHookQuestions: Question[] = [
     categories: ["React", "React Hooks"],
     explanation: "useMemo reduziert teure Neuberechnungen zwischen Renders.",
   },
-  {
-    id: uuidv4(),
-    text: "Wann ist es sinnvoll, useReducer anstelle von useState zu verwenden?",
-    options: [
-      {
-        text: "Bei komplexen Zustandslogiken mit mehreren Aktionen",
-        isCorrect: true,
-      },
-      { text: "Bei sehr einfachen Zustandsänderungen", isCorrect: false },
-      {
-        text: "Um den State automatisch zwischen Komponenten zu teilen",
-        isCorrect: false,
-      },
-      {
-        text: "Um die Performance ohne weitere Optimierungen zu verbessern",
-        isCorrect: false,
-      },
-    ],
-    difficulty: "medium",
-    categories: ["React", "React Hooks"],
-  },
-  {
-    id: uuidv4(),
-    text: "Wie nutzt man useState korrekt mit mehreren unabhängigen Werten?",
-    options: [
-      { text: "Separate useState-Hooks verwenden", isCorrect: true },
-      { text: "Werte in einem Objekt bündeln", isCorrect: false },
-      { text: "Ein useState für alle Werte verwenden", isCorrect: false },
-      { text: "State direkt mutieren", isCorrect: false },
-    ],
-    difficulty: "easy",
-    categories: ["React", "React Hooks"],
-  },
+
+ 
   {
     id: uuidv4(),
     text: "Wann ist der Einsatz von useMemo sinnvoll?",
@@ -437,25 +406,5 @@ export const reactHookQuestions: Question[] = [
     explanation:
       "useReducer eignet sich besser für komplexe Zustandslogiken, da es Aktionen und eine zentrale Reducer-Funktion verwendet, um den Zustand konsistent zu aktualisieren.",
   },
-  {
-    id: uuidv4(),
-    text: "Was bewirkt ein leeres Abhängigkeitsarray ([]) im useEffect-Hook?",
-    options: [
-      { text: "Der Effect wird bei jedem Render aufgerufen", isCorrect: false },
-      {
-        text: "Der Effect wird nur beim ersten Render aufgerufen",
-        isCorrect: true,
-      },
-      {
-        text: "Der Effect wird bei Änderungen des DOM ausgeführt",
-        isCorrect: false,
-      },
-      {
-        text: "Der Effect wird nach jedem Benutzer-Event aufgerufen",
-        isCorrect: false,
-      },
-    ],
-    difficulty: "easy",
-    categories: ["React"],
-  },
+ 
 ];

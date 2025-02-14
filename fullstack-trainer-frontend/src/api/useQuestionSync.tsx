@@ -19,7 +19,24 @@ const QuestionSyncButton = () => {
     }
   };
 
+
+  const scanDuplicates = () => {
+    const textMap = new Map();
+
+    questionList.forEach((question) => {
+        const text = question.text;
+        textMap.set(text, (textMap.get(text) || 0) + 1);
+    });
+
+    textMap.forEach((count, text) => {
+        if (count > 1) {
+            console.log(`Doppelter Eintrag: "${text}" (${count} Mal)`);
+        }
+    });
+};
+
   const handleSync = async () => {
+    scanDuplicates();
     if (questionList.length === 0) {
       console.warn("Keine Fragen zum Synchronisieren.");
       return;
