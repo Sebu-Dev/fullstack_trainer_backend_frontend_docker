@@ -2,17 +2,12 @@ package com.example.fullstack_trainer_backend.question;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.example.fullstack_trainer_backend.question.answer.Answer;
 import com.example.fullstack_trainer_backend.question.category.Category;
-
 import com.example.fullstack_trainer_backend.question.dtos.OptionDto;
-import com.example.fullstack_trainer_backend.question.dtos.CategoryDto;
 import com.example.fullstack_trainer_backend.question.dtos.QuestionDto;
-
+import com.example.fullstack_trainer_backend.question.option.Option;
 @Service
 public class QuestionService {
 
@@ -24,7 +19,8 @@ public class QuestionService {
     }
 
     public Question getQuestionById(Long id) {
-        return questionRepository.findById(id).orElseThrow(() -> new RuntimeException("Frage nicht gefunden"));
+        return questionRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Frage nicht gefunden"));
     }
 
     public Question createQuestion(QuestionDto questionDTO) {
@@ -35,24 +31,25 @@ public class QuestionService {
     public Question updateQuestion(Long id, QuestionDto questionDTO) {
         Question existingQuestion = getQuestionById(id);
         existingQuestion.setText(questionDTO.getText());
-        existingQuestion.setTopic(questionDTO.getText());
         existingQuestion.setDifficulty(DifficultyEnum.valueOf(questionDTO.getDifficulty()));
         existingQuestion.setExplanation(questionDTO.getExplanation());
         existingQuestion.setImageUrl(questionDTO.getImageUrl());
         existingQuestion.setMaxPoints(questionDTO.getMaxPoints());
 
-        existingQuestion.setOptions(questionDTO.getOptions().stream()
-                .map(this::convertAnswerToEntity)
-                .collect(Collectors.toList()));
+        // Optionen aktualisieren
+        existingQuestion.setOptions(
+            questionDTO.getOptions().stream()
+                .map(this::convertOptionToEntity)
+                .peek(option -> option.setQuestion(existingQuestion))
+                .collect(Collectors.toList())
+        );
 
-                existingQuestion.setCategory(questionDTO.getCategory().stream()
-                .map(cat -> {
-                    Category category = new Category();
-                    category.setCategory(cat);
-                    return category;
-                })
-                .collect(Collectors.toList()));
-        
+        // Kategorien aktualisieren
+        existingQuestion.setCategories(
+            questionDTO.getCategories().stream()
+                .map(this::convertCategoryToEntity)
+                .collect(Collectors.toList())
+        );
 
         return questionRepository.save(existingQuestion);
     }
@@ -61,6 +58,7 @@ public class QuestionService {
         questionRepository.deleteById(id);
     }
 
+    // Mapping von QuestionDto zu Question-Entity
     public Question convertToEntity(QuestionDto questionDTO) {
         Question question = new Question();
         question.setText(questionDTO.getText());
@@ -68,36 +66,35 @@ public class QuestionService {
         question.setExplanation(questionDTO.getExplanation());
         question.setImageUrl(questionDTO.getImageUrl());
         question.setMaxPoints(questionDTO.getMaxPoints());
-        
+
         // Mapping der Optionen
-        question.setOptions(questionDTO.getOptions().stream()
-                .map(this::convertAnswerToEntity)
-                .collect(Collectors.toList()));
-        
-        // Mapping der Kategorien: Hier wird aus String eine Category erzeugt
-        question.setCategory(questionDTO.getCategory().stream()
-        .map(this::convertCategoryToEntity)
-        .collect(Collectors.toList()));
+        List<Option> options = questionDTO.getOptions().stream()
+                .map(this::convertOptionToEntity)
+                .peek(option -> option.setQuestion(question))
+                .collect(Collectors.toList());
+        question.setOptions(options);
+
+        // Mapping der Kategorien
+        List<Category> categories = questionDTO.getCategories().stream()
+                .map(this::convertCategoryToEntity)
+                .collect(Collectors.toList());
+        question.setCategories(categories);
 
         return question;
     }
+
+    // Mapping von OptionDto zu Option-Entity
+    public Option convertOptionToEntity(OptionDto optionDTO) {
+        Option option = new Option();
+        option.setText(optionDTO.getText());
+        option.setCorrect(optionDTO.isCorrect());
+        return option;
+    }
+
+    // Mapping von Kategorie (String) zu Category-Entity
     public Category convertCategoryToEntity(String categoryName) {
         Category category = new Category();
-        category.setCategory(categoryName);
-        return category;
-    }
-    
-
-    public Answer convertAnswerToEntity(OptionDto answerDTO) {
-        Answer answer = new Answer();
-        answer.setText(answerDTO.getText());
-        answer.setIs_correct(answerDTO.isCorrect());
-        return answer;
-    }
-
-    public Category convertCategoryToEntity(CategoryDto categoryDTO) {
-        Category category = new Category();
-        category.setCategory(categoryDTO.getCategory());
+        category.setName(categoryName);
         return category;
     }
 }

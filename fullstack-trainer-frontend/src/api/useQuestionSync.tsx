@@ -25,16 +25,13 @@ const QuestionSyncButton = () => {
       return;
     }
 
-    // Vor dem Senden sicherstellen, dass optionale Felder leer oder null sind und die difficulty korrekt zugeordnet wird
-    const preparedQuestions = questionList.map((question) => {
-      return {
-        ...question,
-        difficulty: mapDifficultyToEnum(question.difficulty) ?? null, // Umwandlung der Difficulty
-        explanation: question.explanation ?? null,
-        imageUrl: question.imageUrl ?? null,
-        maxPoints: question.maxPoints ?? null,
-      };
-    });
+    const preparedQuestions = questionList.map(({ id, ...question }) => ({
+      ...question,
+      difficulty: mapDifficultyToEnum(question.difficulty) ?? null,
+      explanation: question.explanation ?? null,
+      imageUrl: question.imageUrl ?? null,
+      maxPoints: question.maxPoints ?? null,
+    }));
 
     try {
       console.log(preparedQuestions);

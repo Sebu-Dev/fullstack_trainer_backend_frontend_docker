@@ -18,7 +18,7 @@ export const dockerVolumeQuestions: Question[] = [
       { text: "docker volume prune löscht alle Volumes", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Volumes"],
+    categories: ["Docker", "Docker Volumes"],
     explanation:
       "Volumes sind persistent und teilbar. 'prune' löscht nur ungenutzte Volumes.",
   },
@@ -35,7 +35,7 @@ export const dockerVolumeQuestions: Question[] = [
       { text: "Volumes benötigen keine Pfadangabe", isCorrect: true },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Volumes"],
+    categories: ["Docker", "Docker Volumes"],
     explanation:
       "Bind Mounts sind flexibel, erfordern aber absolute Pfade. Volumes sind einfacher und von Docker verwaltet.",
   },
@@ -52,7 +52,7 @@ export const dockerVolumeQuestions: Question[] = [
       { text: "Kann nur für einen Container genutzt werden", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Volumes"],
+    categories: ["Docker", "Docker Volumes"],
     explanation:
       "Named Volumes werden mit 'docker volume create' erstellt und sind persistent sowie zwischen Containern teilbar.",
   },
@@ -73,7 +73,7 @@ export const dockerVolumeQuestions: Question[] = [
       { text: "Bind Mounts sind die sicherere Option", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Volumes"],
+    categories: ["Docker", "Docker Volumes"],
     explanation:
       "Volumes sind von Docker verwaltet und persistenter als Bind Mounts.",
   },
@@ -90,7 +90,7 @@ export const dockerVolumeQuestions: Question[] = [
       { text: "Nur durch ein Dockerfile", isCorrect: false },
     ],
     difficulty: "easy",
-    category: ["Docker", "Docker Volumes"],
+    categories: ["Docker", "Docker Volumes"],
     explanation:
       "Volumes können explizit erstellt oder beim Container-Start generiert werden.",
   },
@@ -104,7 +104,7 @@ export const dockerVolumeQuestions: Question[] = [
       { text: "'docker volume prune'", isCorrect: true },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Volumes"],
+    categories: ["Docker", "Docker Volumes"],
     explanation:
       "Prune entfernt ungenutzte Volumes, inspect und ls zeigen Details.",
   },
@@ -118,7 +118,7 @@ export const dockerVolumeQuestions: Question[] = [
       { text: "Bind Mounts sind schneller", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Volumes"],
+    categories: ["Docker", "Docker Volumes"],
     explanation:
       "Named Volumes bieten mehr Portabilität und werden automatisch verwaltet.",
   },
@@ -132,7 +132,7 @@ export const dockerVolumeQuestions: Question[] = [
       { text: "Gar nicht, sie werden automatisch gelöscht", isCorrect: false },
     ],
     difficulty: "easy",
-    category: ["Docker", "Docker Volumes"],
+    categories: ["Docker", "Docker Volumes"],
     explanation: "'docker volume prune' entfernt alle nicht genutzten Volumes.",
   },
   {
@@ -148,7 +148,7 @@ export const dockerVolumeQuestions: Question[] = [
       { text: "Durch Kopieren der Daten via 'docker cp'", isCorrect: false },
     ],
     difficulty: "hard",
-    category: ["Docker", "Docker Volumes"],
+    categories: ["Docker", "Docker Volumes"],
     explanation:
       "Bind Mounts und Named Volumes ermöglichen direkten Zugriff auf Dateien, ohne den Container zu stoppen.",
   },
@@ -171,7 +171,7 @@ export const dockerVolumeQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Volumes"],
+    categories: ["Docker", "Docker Volumes"],
     explanation:
       "'docker-compose' vereinfacht die Verwaltung und Wiederverwendung von Volumes durch deklarative Konfiguration.",
   },
@@ -194,7 +194,7 @@ export const dockerVolumeQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Volumes"],
+    categories: ["Docker", "Docker Volumes"],
     explanation:
       "Named Volumes eignen sich für persistente Daten, während Anonymous Volumes meist temporär genutzt werden.",
   },
@@ -215,7 +215,7 @@ export const dockerVolumeQuestions: Question[] = [
       { text: "Named Volumes sind automatisch sicher", isCorrect: false },
     ],
     difficulty: "hard",
-    category: ["Docker", "Docker Volumes"],
+    categories: ["Docker", "Docker Volumes"],
     explanation:
       "Die Sicherheit von Volumes hängt oft von den Host-System-Berechtigungen ab.",
   },
@@ -235,7 +235,7 @@ export const dockerVolumeQuestions: Question[] = [
       },
     ],
     difficulty: "hard",
-    category: ["Docker", "Docker Volumes"],
+    categories: ["Docker", "Docker Volumes"],
     explanation:
       "Datenverluste sind möglich, wenn Volumes gelöscht werden. Regelmäßige Backups sind essenziell.",
   },

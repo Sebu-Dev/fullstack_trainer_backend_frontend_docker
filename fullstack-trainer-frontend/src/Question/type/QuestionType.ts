@@ -19,7 +19,7 @@ export interface Question {
   text: string;
   options: Option[];
   difficulty?: "easy" | "medium" | "hard";
-  category: string[];
+  categories: string[];
   explanation?: string;
   imageUrl?: string;
   maxPoints?: number;

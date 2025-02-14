@@ -1,5 +1,8 @@
 package com.example.fullstack_trainer_backend.question.dtos;
 
+import lombok.ToString;
+
+@ToString
 public class CategoryDto {
     private String category;
 

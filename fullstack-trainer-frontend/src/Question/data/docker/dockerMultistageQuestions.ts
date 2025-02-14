@@ -12,7 +12,7 @@ export const dockerMultistageQuestions: Question[] = [
       { text: "Erhöhte Netzwerkgeschwindigkeit", isCorrect: false },
     ],
     difficulty: "hard",
-    category: ["Docker", "Docker Multistage"],
+    categories: ["Docker", "Docker Multistage"],
     explanation:
       "Multi-Stage Builds optimieren die Image-Größe und trennen Build-Tools von der Runtime-Umgebung, was die Wartbarkeit erleichtert.",
   },
@@ -26,7 +26,7 @@ export const dockerMultistageQuestions: Question[] = [
       { text: "Verbesserte Netzwerkperformance", isCorrect: false },
     ],
     difficulty: "hard",
-    category: ["Docker", "Docker Multistage"],
+    categories: ["Docker", "Docker Multistage"],
     explanation: "Multi-Stage entfernt Build-Tools aus dem finalen Image.",
   },
 ];

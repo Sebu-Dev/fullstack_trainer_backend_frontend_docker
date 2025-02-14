@@ -15,7 +15,7 @@ export const dockerFileQuestions: Question[] = [
       { text: "Verwendung von Multi-Stage Builds", isCorrect: true },
     ],
     difficulty: "hard",
-    category: ["Docker", "Dockerfile"],
+    categories: ["Docker", "Dockerfile"],
     explanation:
       "Kleine Basis-Images, wenige Layer und Multi-Stage Builds verbessern Performance und Wartbarkeit. Befehle sollten klar getrennt bleiben, nicht gebündelt.",
   },
@@ -35,7 +35,7 @@ export const dockerFileQuestions: Question[] = [
       },
     ],
     difficulty: "hard",
-    category: ["Docker", "Dockerfile"],
+    categories: ["Docker", "Dockerfile"],
     explanation:
       "Fehlt CMD, wird der Standardbefehl des Basisimages verwendet.",
   },
@@ -49,7 +49,7 @@ export const dockerFileQuestions: Question[] = [
       { text: "CMD wird vor ENTRYPOINT ausgeführt", isCorrect: false },
     ],
     difficulty: "hard",
-    category: ["Docker", "Dockerfile"],
+    categories: ["Docker", "Dockerfile"],
     explanation:
       "ENTRYPOINT ist vorrangig, CMD definiert Standardbefehle, die von ENTRYPOINT genutzt werden können.",
   },
@@ -63,7 +63,7 @@ export const dockerFileQuestions: Question[] = [
       { text: "docker push verwenden", isCorrect: false },
     ],
     difficulty: "easy",
-    category: ["Docker", "Dockerfile"],
+    categories: ["Docker", "Dockerfile"],
     explanation:
       "Ein Image wird durch ein Dockerfile und den Befehl 'docker build' erstellt.",
   },
@@ -77,7 +77,7 @@ export const dockerFileQuestions: Question[] = [
       { text: "CMD", isCorrect: false },
     ],
     difficulty: "easy",
-    category: ["Docker", "Dockerfile"],
+    categories: ["Docker", "Dockerfile"],
     explanation: "'FROM' gibt das Basis-Image an.",
   },
   {
@@ -90,7 +90,7 @@ export const dockerFileQuestions: Question[] = [
       { text: "Durch FROM", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Dockerfile"],
+    categories: ["Docker", "Dockerfile"],
     explanation: "'RUN' führt Befehle wie apt-get oder yum im Container aus.",
   },
   {
@@ -103,7 +103,7 @@ export const dockerFileQuestions: Question[] = [
       { text: "FROM", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Dockerfile"],
+    categories: ["Docker", "Dockerfile"],
     explanation:
       "'COPY' und 'ADD' transferieren Dateien, unterscheiden sich jedoch leicht.",
   },

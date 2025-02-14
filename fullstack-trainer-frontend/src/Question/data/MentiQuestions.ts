@@ -24,7 +24,7 @@ export const mentiQuiz: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "Wenn der neue Zustand identisch mit dem alten Zustand ist, wird das Re-Rendering von React vermieden, da keine Änderung vorliegt.",
   },
@@ -50,7 +50,7 @@ export const mentiQuiz: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "`React.Fragment` wird verwendet, um mehrere Elemente zu gruppieren, ohne zusätzliche DOM-Elemente hinzuzufügen. Es kann auch mit dem `key`-Attribut verwendet werden, wenn erforderlich.",
   },
@@ -76,7 +76,7 @@ export const mentiQuiz: Question[] = [
       },
     ],
     difficulty: "hard",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "`componentDidMount` wird nach dem ersten Rendern einer Komponente ausgeführt, und `componentWillUnmount` wird ausgeführt, bevor die Komponente entfernt wird. Funktionskomponenten haben keinen direkten Zugriff auf diese Methoden, aber ähnliche Funktionen können mit `useEffect` erreicht werden.",
   },
@@ -102,7 +102,7 @@ export const mentiQuiz: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "`React.memo` ist ein High Order Component (HOC), das dafür sorgt, dass eine Komponente nur dann neu gerendert wird, wenn sich ihre Props ändern, wodurch unnötige Renderings vermieden werden.",
   },
@@ -128,7 +128,7 @@ export const mentiQuiz: Question[] = [
       },
     ],
     difficulty: "easy",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "In React wird der Wert eines Formularfeldes durch den `value`-Prop gesteuert, der mit dem Zustand der Komponente verknüpft ist. Dies wird als kontrollierte Komponente bezeichnet.",
   },
@@ -154,7 +154,7 @@ export const mentiQuiz: Question[] = [
       },
     ],
     difficulty: "hard",
-    category: ["React", "Hook"],
+    categories: ["React", "Hook"],
     explanation:
       "`useEffect` wird nach dem Rendern ausgeführt, während `useLayoutEffect` synchron ausgeführt wird, bevor der DOM aktualisiert wird, was für Layout-Manipulationen nützlich ist.",
   },
@@ -180,7 +180,7 @@ export const mentiQuiz: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["React", "Hook"],
+    categories: ["React", "Hook"],
     explanation:
       "`useContext` wird verwendet, um Daten zwischen Komponenten zu teilen, ohne Props weiterzugeben, und `useReducer` hilft bei der Verwaltung komplexerer Zustände, die mehrere Aktionen erfordern.",
   },
@@ -206,7 +206,7 @@ export const mentiQuiz: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "`shouldComponentUpdate` und `React.memo` helfen dabei, unnötige Renderings zu verhindern, indem sie sicherstellen, dass Komponenten nur neu gerendert werden, wenn sich die Props oder der Zustand ändern.",
   },

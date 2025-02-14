@@ -21,7 +21,7 @@ export const dockerLayerQuestions: Question[] = [
       { text: "Ein Layer speichert Metadaten eines Images", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Layer"],
+    categories: ["Docker", "Docker Layer"],
 
     explanation:
       "Docker Images bestehen aus einer Reihe von unveränderlichen Layers, die aufeinander aufbauen.",
@@ -42,7 +42,7 @@ export const dockerLayerQuestions: Question[] = [
       },
     ],
     difficulty: "hard",
-    category: ["Docker", "Docker Layer"],
+    categories: ["Docker", "Docker Layer"],
 
     explanation:
       "Häufige Änderungen in späteren Layers verhindern, dass der Cache vorheriger Layers neu berechnet werden muss.",
@@ -60,7 +60,7 @@ export const dockerLayerQuestions: Question[] = [
       },
     ],
     difficulty: "hard",
-    category: ["Docker", "Docker Layer"],
+    categories: ["Docker", "Docker Layer"],
 
     explanation:
       "Jeder Dockerfile-Befehl erzeugt einen Layer. Eine durchdachte Reihenfolge kann den Cache effizienter nutzen.",
@@ -81,7 +81,7 @@ export const dockerLayerQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Layer"],
+    categories: ["Docker", "Docker Layer"],
 
     explanation:
       "Layer Caching ermöglicht eine effiziente Wiederverwendung bereits gebauter Layers.",
@@ -102,7 +102,7 @@ export const dockerLayerQuestions: Question[] = [
       { text: "Durch Nutzung von großen Layer-Caches", isCorrect: false },
     ],
     difficulty: "hard",
-    category: ["Docker", "Docker Layer"],
+    categories: ["Docker", "Docker Layer"],
 
     explanation:
       "Das Kombinieren von Aktionen und Entfernen von temporären Dateien in einem Layer hilft, die Größe zu minimieren.",
@@ -123,7 +123,7 @@ export const dockerLayerQuestions: Question[] = [
       { text: "Nur Base-Images beeinflussen die Sicherheit", isCorrect: false },
     ],
     difficulty: "hard",
-    category: ["Docker", "Docker Layer"],
+    categories: ["Docker", "Docker Layer"],
 
     explanation:
       "Nicht aktualisierte Layers können Sicherheitslücken enthalten, weshalb regelmäßige Updates wichtig sind.",
@@ -144,7 +144,7 @@ export const dockerLayerQuestions: Question[] = [
       { text: "Die Layer-Größe wird automatisch optimiert", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Layer"],
+    categories: ["Docker", "Docker Layer"],
 
     explanation:
       "Mehr Layers bedeuten größere Images, aber erleichtern die Nachvollziehbarkeit und das Debugging.",
@@ -168,7 +168,7 @@ export const dockerLayerQuestions: Question[] = [
       { text: "Base-Images werden beim Build ignoriert", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Layer"],
+    categories: ["Docker", "Docker Layer"],
 
     explanation:
       "Ein Base-Image definiert den Ausgangspunkt für Layers und beeinflusst alle darauf aufbauenden Images.",
@@ -186,7 +186,7 @@ export const dockerLayerQuestions: Question[] = [
       { text: "Er optimiert den Build-Prozess", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Layer"],
+    categories: ["Docker", "Docker Layer"],
 
     explanation:
       "Mit `docker history` kannst du die Layer-Struktur analysieren und mögliche Verbesserungen im Dockerfile identifizieren.",
@@ -207,7 +207,7 @@ export const dockerLayerQuestions: Question[] = [
       { text: "Flattening entfernt Caching-Vorteile", isCorrect: true },
     ],
     difficulty: "hard",
-    category: ["Docker", "Docker Layer"],
+    categories: ["Docker", "Docker Layer"],
 
     explanation:
       "Flattening reduziert die Komplexität, geht aber auf Kosten von Debugging und Caching-Vorteilen.",

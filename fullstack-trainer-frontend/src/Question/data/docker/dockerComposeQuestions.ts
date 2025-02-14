@@ -18,7 +18,7 @@ export const dockerComposeQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Compose"],
+    categories: ["Docker", "Docker Compose"],
     explanation:
       "Docker Compose wird verwendet, um mehrere Container mit einer einzigen YAML-Datei (`docker-compose.yml`) zu definieren und gemeinsam zu verwalten.",
   },
@@ -35,7 +35,7 @@ export const dockerComposeQuestions: Question[] = [
       { text: "Es unterstützt keine Volumes", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Compose"],
+    categories: ["Docker", "Docker Compose"],
     explanation:
       "Docker Compose definiert Multi-Container-Apps in einer YAML-Datei. Es ergänzt Docker Swarm und unterstützt Volumes vollständig.",
   },
@@ -50,7 +50,7 @@ export const dockerComposeQuestions: Question[] = [
       { text: "Ist nur für Netzwerkeinstellungen gedacht", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Compose"],
+    categories: ["Docker", "Docker Compose"],
     explanation:
       "Die docker-compose.yml definiert Anwendungen mit mehreren Containern, die zusammen arbeiten.",
   },
@@ -68,7 +68,7 @@ export const dockerComposeQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Compose"],
+    categories: ["Docker", "Docker Compose"],
     explanation:
       "Docker Compose ermöglicht eine einfache Verwaltung von Multi-Container-Anwendungen, erleichtert das Networking und die Volumenverwaltung, jedoch ohne automatische Skalierung.",
   },
@@ -82,7 +82,7 @@ export const dockerComposeQuestions: Question[] = [
       { text: "compose.yaml", isCorrect: true },
     ],
     difficulty: "easy",
-    category: ["Docker", "Docker Compose"],
+    categories: ["Docker", "Docker Compose"],
     explanation:
       "Docker Compose nutzt standardmäßig die Datei `docker-compose.yml`, erlaubt aber auch `compose.yaml` ab Docker Compose v2.",
   },
@@ -96,7 +96,7 @@ export const dockerComposeQuestions: Question[] = [
       { text: "docker-compose up -d", isCorrect: true },
     ],
     difficulty: "easy",
-    category: ["Docker", "Docker Compose"],
+    categories: ["Docker", "Docker Compose"],
     explanation:
       "Mit `docker compose up` wird der definierte Container-Stack gestartet, mit `-d` läuft er im Hintergrund.",
   },
@@ -110,7 +110,7 @@ export const dockerComposeQuestions: Question[] = [
       { text: "docker-compose reset", isCorrect: false },
     ],
     difficulty: "easy",
-    category: ["Docker", "Docker Compose"],
+    categories: ["Docker", "Docker Compose"],
     explanation:
       "`docker compose stop` stoppt Container, behält aber Netzwerke und Volumes. `docker compose down` entfernt Container, Netzwerke und Standard-Volumes.",
   },
@@ -130,7 +130,7 @@ export const dockerComposeQuestions: Question[] = [
       { text: "Mit `docker run --env VAR=VALUE`", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Compose"],
+    categories: ["Docker", "Docker Compose"],
     explanation:
       "Umgebungsvariablen können in `docker-compose.yml` unter `environment:` gesetzt oder in einer `.env`-Datei gespeichert werden.",
   },
@@ -144,7 +144,7 @@ export const dockerComposeQuestions: Question[] = [
       { text: "docker-compose clean <service_name>", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Compose"],
+    categories: ["Docker", "Docker Compose"],
     explanation:
       "`docker compose build <service_name>` baut ein bestimmtes Service-Image neu, `docker compose up --build` baut alle Images neu.",
   },
@@ -161,7 +161,7 @@ export const dockerComposeQuestions: Question[] = [
       { text: "Nur für Windows und macOS verfügbar", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Compose"],
+    categories: ["Docker", "Docker Compose"],
     explanation:
       "Docker Compose eignet sich nicht für große skalierbare Anwendungen oder Hochverfügbarkeitslösungen. Netzwerkmanagement ist hingegen einfach integriert.",
   },
@@ -184,7 +184,7 @@ export const dockerComposeQuestions: Question[] = [
       { text: "Durch Angabe von Ports in `expose:`", isCorrect: false },
     ],
     difficulty: "hard",
-    category: ["Docker", "Docker Compose"],
+    categories: ["Docker", "Docker Compose"],
     explanation:
       "Services im gleichen `docker-compose.yml` sind automatisch vernetzt. Zusätzliche Netzwerke können mit `networks:` definiert werden.",
   },
@@ -198,7 +198,7 @@ export const dockerComposeQuestions: Question[] = [
       { text: "docker-compose debug <service_name>", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Compose"],
+    categories: ["Docker", "Docker Compose"],
     explanation:
       "Mit `docker compose logs` kann man Logs sehen. `-f` sorgt für ein Live-Streaming der Logs.",
   },

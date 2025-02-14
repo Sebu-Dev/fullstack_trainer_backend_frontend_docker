@@ -12,7 +12,7 @@ export const dockerQuestions: Question[] = [
       { text: "docker ps", isCorrect: true },
     ],
     difficulty: "medium",
-    category: ["Docker"],
+    categories: ["Docker"],
     explanation:
       "Container-Verwaltung: 'run' (erstellen/starten), 'start' (neustarten), 'ps' (anzeigen). 'build' erstellt Images.",
   },
@@ -27,7 +27,7 @@ export const dockerQuestions: Question[] = [
       { text: "Overlay: Nur für Bind Mounts verfügbar", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker"],
+    categories: ["Docker"],
     explanation:
       "Bridge ist der Standard. Host teilt das Host-Netzwerk, None deaktiviert Netzwerke. Overlay ist für Swarm.",
   },
@@ -41,7 +41,7 @@ export const dockerQuestions: Question[] = [
       { text: "Kann nur HTTP-Checks durchführen", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Healthcheck"],
+    categories: ["Docker", "Docker Healthcheck"],
     explanation:
       "Healthchecks prüfen die Funktionalität eines Containers und werden meist im Dockerfile definiert.",
   },
@@ -59,7 +59,7 @@ export const dockerQuestions: Question[] = [
       { text: "Docker reserviert Ports dynamisch", isCorrect: false },
     ],
     difficulty: "hard",
-    category: ["Docker"],
+    categories: ["Docker"],
     explanation:
       "Wenn mehrere Container denselben Port belegen, entstehen Konflikte, und die Container können nicht starten.",
   },
@@ -76,7 +76,7 @@ export const dockerQuestions: Question[] = [
       { text: "Sie ersetzen Volumes für Passwörter", isCorrect: false },
     ],
     difficulty: "hard",
-    category: ["Docker", "Docker Security"],
+    categories: ["Docker", "Docker Security"],
     explanation:
       "Docker Secrets speichern sensible Daten und sind nur im Swarm-Modus verfügbar.",
   },
@@ -91,7 +91,7 @@ export const dockerQuestions: Question[] = [
       { text: "docker exec", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker"],
+    categories: ["Docker"],
     explanation:
       "Befehle wie 'build', 'commit' und 'push' betreffen die Erstellung und Verwaltung von Images. 'exec' dient der Interaktion mit laufenden Containern.",
   },
@@ -105,7 +105,7 @@ export const dockerQuestions: Question[] = [
       { text: "package.json", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker"],
+    categories: ["Docker"],
     explanation:
       "In der .dockerignore-Datei werden unnötige Dateien wie 'node_modules' oder '.git' ausgeschlossen, um die Build-Performance zu verbessern.",
   },
@@ -120,7 +120,7 @@ export const dockerQuestions: Question[] = [
       { text: "Virtual Mounts", isCorrect: false },
     ],
     difficulty: "hard",
-    category: ["Docker", "Docker Mounting"],
+    categories: ["Docker", "Docker Mounting"],
     explanation:
       "Docker unterstützt Bind Mounts, Named Volumes und Anonymous Volumes, aber keine 'Virtual Mounts'.",
   },
@@ -135,7 +135,7 @@ export const dockerQuestions: Question[] = [
       { text: "Nur über die Host-Maschine", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Networking"],
+    categories: ["Docker", "Docker Networking"],
     explanation:
       "Container können über Docker-Netzwerke und Umgebungsvariablen für IP-Adressen kommunizieren. Gemeinsame Volumes dienen nicht zur Netzwerkkommunikation.",
   },
@@ -149,7 +149,7 @@ export const dockerQuestions: Question[] = [
       { text: "docker container remove --all", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker"],
+    categories: ["Docker"],
     explanation:
       "'system prune', 'volume prune' und 'network prune' entfernen ungenutzte Ressourcen. 'container remove --all' ist kein gültiger Befehl.",
   },
@@ -173,7 +173,7 @@ export const dockerQuestions: Question[] = [
       { text: "Setzt Container-IPs auf statische Adressen", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Networking"],
+    categories: ["Docker", "Docker Networking"],
     explanation:
       "'docker network create' erstellt ein benutzerdefiniertes Netzwerk und ermöglicht Namensauflösung. Container müssen explizit verbunden werden.",
   },
@@ -188,7 +188,7 @@ export const dockerQuestions: Question[] = [
       { text: "Durch das Docker-Healthcheck-Feature", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Datenpersistenz"],
+    categories: ["Docker", "Docker Datenpersistenz"],
     explanation: "Volumes und Bind Mounts garantieren Persistenz.",
   },
   {
@@ -204,7 +204,7 @@ export const dockerQuestions: Question[] = [
       { text: "Daten aus 'tmpfs' bleiben erhalten", isCorrect: false },
     ],
     difficulty: "hard",
-    category: ["Docker", "Docker Datenpersistenz"],
+    categories: ["Docker", "Docker Datenpersistenz"],
     explanation: "Nur Daten in Volumes oder Bind Mounts überleben.",
   },
   {
@@ -217,7 +217,7 @@ export const dockerQuestions: Question[] = [
       { text: "Bind Mounts werden von Docker verwaltet", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Datenpersistenz"],
+    categories: ["Docker", "Docker Datenpersistenz"],
     explanation:
       "Named Volumes sind portabler, Bind Mounts hängen vom Host ab.",
   },
@@ -234,7 +234,7 @@ export const dockerQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Datenpersistenz"],
+    categories: ["Docker", "Docker Datenpersistenz"],
     explanation:
       "Volumes sind der beste Weg, um Daten zwischen Containern zu teilen.",
   },
@@ -248,7 +248,7 @@ export const dockerQuestions: Question[] = [
       { text: "Swarm Secrets", isCorrect: false },
     ],
     difficulty: "easy",
-    category: ["Docker", "Docker Datenpersistenz"],
+    categories: ["Docker", "Docker Datenpersistenz"],
     explanation: "Named Volumes und Bind Mounts sind die primären Optionen.",
   },
 
@@ -271,7 +271,7 @@ export const dockerQuestions: Question[] = [
       { text: "Nur Bind Mounts schützen Daten dauerhaft", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["Docker", "Docker Datenpersistenz"],
+    categories: ["Docker", "Docker Datenpersistenz"],
     explanation:
       "Container-File-Systeme sind flüchtig. Daten sollten extern gespeichert werden.",
   },

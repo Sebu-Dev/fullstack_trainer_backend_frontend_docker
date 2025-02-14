@@ -12,7 +12,7 @@ const reactQuestions: Question[] = [
       { text: "Bei Änderungen im Window-Objekt", isCorrect: false },
     ],
     difficulty: "hard",
-    category: ["React Rendering"],
+    categories: ["React Rendering"],
     explanation: "Rendering bei State/Prop-Änderungen oder Context-Updates.",
   },
   {
@@ -25,7 +25,7 @@ const reactQuestions: Question[] = [
       { text: "<Link>", isCorrect: false },
     ],
     difficulty: "easy",
-    category: ["React", "React Router"],
+    categories: ["React", "React Router"],
     explanation:
       "<BrowserRouter> ist die Basis-Komponente, die React-Router verwendet, um die URL und den Anwendungsstatus zu synchronisieren.",
   },
@@ -48,7 +48,7 @@ const reactQuestions: Question[] = [
       { text: "Zustand erfordert mehrere Context-Provider", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "Zustand ist leichter einzurichten und hat weniger Boilerplate im Vergleich zu React Context, was ihn für einfache Szenarien effizienter macht.",
   },
@@ -62,7 +62,7 @@ const reactQuestions: Question[] = [
       { text: "useQuery", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "useMutation wird in React Query verwendet, um Daten zu schreiben oder zu aktualisieren, z. B. bei POST-, PUT- oder DELETE-Anfragen.",
   },
@@ -80,7 +80,7 @@ const reactQuestions: Question[] = [
       { text: "Ein neues Re-Render erzwingen", isCorrect: false },
     ],
     difficulty: "easy",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "Refs werden verwendet, um direkt auf DOM-Elemente zuzugreifen, ohne den Component-State zu beeinflussen.",
   },
@@ -95,7 +95,7 @@ const reactQuestions: Question[] = [
       { text: "Die zustandsbehaftete Logik", isCorrect: true },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "Custom Hooks teilen zustandsbehaftete Logik, nicht jedoch den Zustand oder die Props zwischen Komponenten.",
   },
@@ -110,7 +110,7 @@ const reactQuestions: Question[] = [
       { text: "Um eine neue Komponente zu rendern", isCorrect: false },
     ],
     difficulty: "easy",
-    category: ["React", "React Context"],
+    categories: ["React", "React Context"],
     explanation:
       "Ein Provider teilt den Context-Wert an alle untergeordneten Komponenten, die den Context konsumieren.",
   },
@@ -127,7 +127,7 @@ const reactQuestions: Question[] = [
       { text: "Ersetzt alle anderen Hooks", isCorrect: false },
     ],
     difficulty: "easy",
-    category: ["React", "React Context"],
+    categories: ["React", "React Context"],
     explanation:
       "useContext erspart das Weiterreichen von Props über mehrere Ebenen und erleichtert die Handhabung globaler Zustände.",
   },
@@ -142,7 +142,7 @@ const reactQuestions: Question[] = [
       { text: "`updateState`", isCorrect: false },
     ],
     difficulty: "easy",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "In React wird der Zustand einer Klasse durch die Methode `setState` und in Funktionskomponenten durch `useState` aktualisiert.",
   },
@@ -156,7 +156,7 @@ const reactQuestions: Question[] = [
       { text: "`<Link>` und `<Route>`", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["React", "React Router"],
+    categories: ["React", "React Router"],
     explanation:
       "Der React Router verwendet `<Router>` und `<Route>`, um Navigation und Routen zu definieren.",
   },
@@ -170,7 +170,7 @@ const reactQuestions: Question[] = [
       { text: "`useRouteMatch`", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["React", "React Router"],
+    categories: ["React", "React Router"],
     explanation:
       "`useNavigate` wird verwendet, um die Navigation zu steuern, wenn der Zustand oder die Route geändert wird.",
   },
@@ -196,7 +196,7 @@ const reactQuestions: Question[] = [
       },
     ],
     difficulty: "easy",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "Funktionskomponenten sind leichtergewichtig und benötigen weniger Boilerplate-Code. Sie können Hooks verwenden, um Funktionen wie State und Seiteneffekte zu verwalten. In Klassenkomponenten wird dies über Methoden wie `this.setState` und Lifecycle-Methoden erreicht.",
   },
@@ -222,7 +222,7 @@ const reactQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "`setState` in einer Klassenkomponente plant ein Re-Rendering. Der neue State wird nicht sofort verfügbar, sondern erst nach dem nächsten Renderzyklus.",
   },
@@ -249,7 +249,7 @@ const reactQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "Bedingtes Rendering kann mit `if`-Statements oder dem Ternary-Operator durchgeführt werden. Der `&&`-Operator ist eine gängige Möglichkeit, um bedingte Renderings in JSX durchzuführen.",
   },
@@ -275,7 +275,7 @@ const reactQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "Das Virtual DOM hilft, das tatsächliche DOM effizienter zu aktualisieren, indem nur die minimalen Änderungen vorgenommen werden, die nötig sind, anstatt das gesamte DOM neu zu rendern.",
   },
@@ -301,7 +301,7 @@ const reactQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "`React.memo()` ist eine HOC (Higher-Order Component), die es ermöglicht, dass eine Komponente nur dann erneut gerendert wird, wenn sich ihre Props tatsächlich ändern, was Performance-Vorteile bringt.",
   },
@@ -328,7 +328,7 @@ const reactQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "Prop-Drilling kann vermieden werden, indem ein globaler Zustand, beispielsweise mit Redux oder Context API, verwendet wird, um Daten ohne das Weitergeben durch mehrere Komponentenschichten zu verwalten.",
   },
@@ -354,7 +354,7 @@ const reactQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "Der `key`-Prop hilft React, Änderungen in Listen effizient zu erkennen und so das Re-Rendering zu optimieren. Wenn er fehlt, wird die Performance negativ beeinflusst.",
   },
@@ -380,7 +380,7 @@ const reactQuestions: Question[] = [
       },
     ],
     difficulty: "hard",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "`useCallback` wird verwendet, um eine Funktion zu speichern und sicherzustellen, dass sie nur dann neu erstellt wird, wenn sich ihre Abhängigkeiten ändern, um unnötige Neuberechnungen zu vermeiden.",
   },
@@ -407,7 +407,7 @@ const reactQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "Die Context API ermöglicht es, Daten global zur Verfügung zu stellen, ohne sie explizit durch die Komponentenhierarchie weiterzugeben. Sie kann sowohl mit als auch ohne Hooks verwendet werden.",
   },
@@ -433,7 +433,7 @@ const reactQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "Wenn `useState` mit einem neuen Wert aufgerufen wird, vergleicht React den alten und den neuen Wert und rendert nur dann neu, wenn die Werte unterschiedlich sind.",
   },
@@ -459,7 +459,7 @@ const reactQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "Der `key`-Prop hilft React, Elemente in Listen zu identifizieren und das Rendering effizient zu gestalten, indem nur die tatsächlich geänderten Elemente neu gerendert werden.",
   },
@@ -485,7 +485,7 @@ const reactQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["React", "React Router"],
+    categories: ["React", "React Router"],
     explanation:
       "React Router ermöglicht es, basierend auf der URL zwischen verschiedenen Komponenten zu navigieren und das passende Routing-Setup zu erstellen. Es ist für alle Komponentenarten geeignet, nicht nur für Funktionskomponenten.",
   },
@@ -511,7 +511,7 @@ const reactQuestions: Question[] = [
       },
     ],
     difficulty: "easy",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "In React werden Ereignisse durch die Verwendung von JSX-Attributen wie `onClick`, `onSubmit` und anderen direkt in den Komponenten behandelt.",
   },
@@ -537,7 +537,7 @@ const reactQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "Formulardaten werden häufig mit `useState` verwaltet, indem man jedes Eingabefeld mit einem State-Value und einem `onChange`-Handler verknüpft, um die Eingaben zu überwachen.",
   },
@@ -563,7 +563,7 @@ const reactQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "Wenn der neue Zustand identisch mit dem alten Zustand ist, wird das Re-Rendering von React vermieden, da keine Änderung vorliegt.",
   },
@@ -589,7 +589,7 @@ const reactQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "`React.Fragment` wird verwendet, um mehrere Elemente zu gruppieren, ohne zusätzliche DOM-Elemente hinzuzufügen. Es kann auch mit dem `key`-Attribut verwendet werden, wenn erforderlich.",
   },
@@ -615,7 +615,7 @@ const reactQuestions: Question[] = [
       },
     ],
     difficulty: "hard",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "`componentDidMount` wird nach dem ersten Rendern einer Komponente ausgeführt, und `componentWillUnmount` wird ausgeführt, bevor die Komponente entfernt wird. Funktionskomponenten haben keinen direkten Zugriff auf diese Methoden, aber ähnliche Funktionen können mit `useEffect` erreicht werden.",
   },
@@ -641,7 +641,7 @@ const reactQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "`React.memo` ist ein High Order Component (HOC), das dafür sorgt, dass eine Komponente nur dann neu gerendert wird, wenn sich ihre Props ändern, wodurch unnötige Renderings vermieden werden.",
   },
@@ -667,7 +667,7 @@ const reactQuestions: Question[] = [
       },
     ],
     difficulty: "easy",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "In React wird der Wert eines Formularfeldes durch den `value`-Prop gesteuert, der mit dem Zustand der Komponente verknüpft ist. Dies wird als kontrollierte Komponente bezeichnet.",
   },
@@ -694,7 +694,7 @@ const reactQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
     explanation:
       "`shouldComponentUpdate` und `React.memo` helfen dabei, unnötige Renderings zu verhindern, indem sie sicherstellen, dass Komponenten nur neu gerendert werden, wenn sich die Props oder der Zustand ändern.",
   },
@@ -712,7 +712,7 @@ const reactQuestions: Question[] = [
       { text: "Ein neues Re-Render erzwingen", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
   },
 
   {
@@ -734,7 +734,7 @@ const reactQuestions: Question[] = [
       { text: "Für jede State-Änderung", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
   },
   {
     id: uuidv4(),
@@ -746,7 +746,7 @@ const reactQuestions: Question[] = [
       { text: "useQuery", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["React"],
+    categories: ["React"],
   },
   {
     id: uuidv4(),
@@ -758,7 +758,7 @@ const reactQuestions: Question[] = [
       { text: "Um eine neue Komponente zu rendern", isCorrect: false },
     ],
     difficulty: "easy",
-    category: ["React", "React Context"],
+    categories: ["React", "React Context"],
   },
   {
     id: uuidv4(),
@@ -773,7 +773,7 @@ const reactQuestions: Question[] = [
       { text: "Ersetzt alle anderen Hooks", isCorrect: false },
     ],
     difficulty: "easy",
-    category: ["React", "React Context"],
+    categories: ["React", "React Context"],
   },
 
   {
@@ -795,7 +795,7 @@ const reactQuestions: Question[] = [
       },
     ],
     difficulty: "hard",
-    category: ["React"],
+    categories: ["React"],
   },
 ];
 

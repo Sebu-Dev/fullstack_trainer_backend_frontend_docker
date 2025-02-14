@@ -16,14 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.fullstack_trainer_backend.question.dtos.QuestionDto;
-
 @RestController
 @RequestMapping("/questions")
 @CrossOrigin(origins = "http://localhost:3000")
 public class QuestionController {
 
-    @Autowired
-    private QuestionService questionService;
+    private final QuestionService questionService;
 
     public QuestionController(QuestionService questionService) {
         this.questionService = questionService;
@@ -41,12 +39,14 @@ public class QuestionController {
 
     @PostMapping
     public ResponseEntity<Question> createQuestion(@RequestBody QuestionDto questionDto) {
-        return ResponseEntity.ok(questionService.createQuestion(questionDto));
+        Question createdQuestion = questionService.createQuestion(questionDto);
+        return ResponseEntity.ok(createdQuestion);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Question> updateQuestion(@PathVariable Long id, @RequestBody QuestionDto questionDto) {
-        return ResponseEntity.ok(questionService.updateQuestion(id, questionDto));
+        Question updatedQuestion = questionService.updateQuestion(id, questionDto);
+        return ResponseEntity.ok(updatedQuestion);
     }
 
     @DeleteMapping("/{id}")
@@ -56,18 +56,16 @@ public class QuestionController {
     }
 
     @PostMapping("/bulk")
-    public ResponseEntity<?> bulkCreateQuestions(@RequestBody List<Object> questionsDTO) {
-
-        questionsDTO.forEach(System.out::print);
+    public ResponseEntity<?> bulkCreateQuestions(@RequestBody List<QuestionDto> questionsDTO) {
+questionsDTO.forEach(System.out::println);
+        System.out.println("bulk!");
         try {
-           /*  List<Question> questions = questionsDTO.stream()
-                    .map(questionService::convertToEntity)
-                    .collect(Collectors.toList()); */
-            return ResponseEntity.ok("questions");
+            List<Question> questions = questionsDTO.stream()
+                    .map(questionService::createQuestion)
+                    .collect(Collectors.toList());
+            return ResponseEntity.ok(questions);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Fehler bei der Anfrage: " + e.getMessage());
         }
     }
-
-
 }

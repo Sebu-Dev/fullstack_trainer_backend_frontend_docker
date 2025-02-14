@@ -24,7 +24,7 @@ const typeScriptQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["TypeScript"],
+    categories: ["TypeScript"],
     explanation:
       "TypeScript unterstützt sowohl primitive als auch komplexe Typen. Generics und Conditional Types bieten Flexibilität für die Typisierung.",
   },
@@ -50,7 +50,7 @@ const typeScriptQuestions: Question[] = [
       },
     ],
     difficulty: "hard",
-    category: ["TypeScript"],
+    categories: ["TypeScript"],
     explanation:
       "Generische Funktionen verwenden `<T>` zur Definition und können unterschiedliche Typen verarbeiten, z.B. `function func<T>(param: T): T {}`.",
   },
@@ -64,7 +64,7 @@ const typeScriptQuestions: Question[] = [
       { text: "function myFunction(string): void { }", isCorrect: false },
     ],
     difficulty: "medium",
-    category: ["TypeScript"],
+    categories: ["TypeScript"],
     explanation:
       "In TypeScript wird die Typisierung der Parameter und des Rückgabewerts einer Funktion mit `param: type` angegeben.",
   },

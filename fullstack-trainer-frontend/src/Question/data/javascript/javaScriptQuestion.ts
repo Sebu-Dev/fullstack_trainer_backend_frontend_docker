@@ -24,7 +24,7 @@ const JavaScriptQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["JavaScript"],
+    categories: ["JavaScript"],
     explanation:
       "'this' kann in regulären Funktionen auf das globale Objekt zeigen, während Arrow-Funktionen das 'this' aus dem umgebenden Kontext verwenden.",
   },
@@ -50,7 +50,7 @@ const JavaScriptQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["JavaScript"],
+    categories: ["JavaScript"],
     explanation:
       "`let` und `const` haben Blockscope, `var` hat Funktionsscope. `const` ermöglicht keine Wertänderung, während `let` und `var` verändert werden können.",
   },
@@ -64,7 +64,7 @@ const JavaScriptQuestions: Question[] = [
       { text: "Array", isCorrect: false },
     ],
     difficulty: "easy",
-    category: ["JavaScript"],
+    categories: ["JavaScript"],
     explanation:
       "Primitive Datentypen in JavaScript sind Number, String, Boolean, null, undefined, Symbol, und BigInt.",
   },
@@ -90,7 +90,7 @@ const JavaScriptQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["JavaScript", "Web APIs"],
+    categories: ["JavaScript", "Web APIs"],
     explanation:
       "`getElementById` wählt nur ein Element mit der angegebenen ID aus, während `createElement` ein neues DOM-Element erzeugt.",
   },
@@ -116,7 +116,7 @@ const JavaScriptQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["JavaScript", "Web APIs"],
+    categories: ["JavaScript", "Web APIs"],
     explanation:
       "Fetch gibt immer ein Promise zurück, aber um Fehler zu behandeln, muss man manuell den HTTP-Status überprüfen und Fehler abfangen.",
   },
@@ -139,7 +139,7 @@ const JavaScriptQuestions: Question[] = [
       },
     ],
     difficulty: "medium",
-    category: ["JavaScript", "Async Programming"],
+    categories: ["JavaScript", "Async Programming"],
     explanation:
       "'async/await' ist ein syntaktischer Zucker für die Arbeit mit Promises und hilft, asynchrone Operationen klarer zu schreiben.",
   },
@@ -165,7 +165,7 @@ const JavaScriptQuestions: Question[] = [
       },
     ],
     difficulty: "hard",
-    category: ["JavaScript", "Async Programming"],
+    categories: ["JavaScript", "Async Programming"],
     explanation:
       "`Promise.all` wartet auf alle Promises, aber gibt sie in einem Array zurück und bricht sofort ab, wenn eines fehlschlägt.",
   },
