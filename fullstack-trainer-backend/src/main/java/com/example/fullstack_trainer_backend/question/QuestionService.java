@@ -22,7 +22,9 @@ public class QuestionService {
         return questionRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Frage nicht gefunden"));
     }
-
+    public List<Question> saveAll(List<Question> questions) {
+        return questionRepository.saveAll(questions);
+    }
     public Question createQuestion(QuestionDto questionDTO) {
         Question question = convertToEntity(questionDTO);
         return questionRepository.save(question);

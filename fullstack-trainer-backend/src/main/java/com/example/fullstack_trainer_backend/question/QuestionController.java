@@ -1,8 +1,8 @@
 package com.example.fullstack_trainer_backend.question;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,7 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.fullstack_trainer_backend.question.dtos.QuestionDto;
 @RestController
@@ -22,11 +28,14 @@ import com.example.fullstack_trainer_backend.question.dtos.QuestionDto;
 public class QuestionController {
 
     private final QuestionService questionService;
+    private final ObjectMapper objectMapper;
 
-    public QuestionController(QuestionService questionService) {
+    
+
+    public QuestionController(QuestionService questionService, ObjectMapper objectMapper) {
         this.questionService = questionService;
+        this.objectMapper = objectMapper;
     }
-
     @GetMapping
     public List<Question> getAllQuestions() {
         return questionService.getAllQuestions();
@@ -66,6 +75,20 @@ questionsDTO.forEach(System.out::println);
             return ResponseEntity.ok(questions);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Fehler bei der Anfrage: " + e.getMessage());
+        }
+    }
+    @PostMapping("/upload")
+    public ResponseEntity<String> uploadQuestions(@RequestParam("file") MultipartFile file) {
+        if (file.isEmpty()) {
+            return ResponseEntity.badRequest().body("Die Datei ist leer");
+        }
+        
+        try {
+            List<Question> questions = objectMapper.readValue(file.getInputStream(), new TypeReference<>() {});
+            questionService.saveAll(questions);
+            return ResponseEntity.ok("Fragen erfolgreich gespeichert: " + questions.size());
+        } catch (IOException e) {
+            return ResponseEntity.badRequest().body("Fehler beim Verarbeiten der Datei: " + e.getMessage());
         }
     }
 }
