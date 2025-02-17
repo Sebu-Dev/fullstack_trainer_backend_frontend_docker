@@ -66,8 +66,7 @@ public class QuestionController {
 
     @PostMapping("/bulk")
     public ResponseEntity<?> bulkCreateQuestions(@RequestBody List<QuestionDto> questionsDTO) {
-questionsDTO.forEach(System.out::println);
-        System.out.println("bulk!");
+        questionsDTO.forEach(System.out::println);
         try {
             List<Question> questions = questionsDTO.stream()
                     .map(questionService::createQuestion)
