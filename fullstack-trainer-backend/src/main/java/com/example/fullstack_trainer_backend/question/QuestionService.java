@@ -11,11 +11,12 @@ import com.example.fullstack_trainer_backend.question.category.Category;
 import com.example.fullstack_trainer_backend.question.dtos.OptionDto;
 import com.example.fullstack_trainer_backend.question.dtos.QuestionDto;
 import com.example.fullstack_trainer_backend.question.option.Option;
+
 @Service
 public class QuestionService {
 
     @Autowired
-    
+
     private QuestionRepository questionRepository;
 
     public List<Question> getAllQuestions() {
@@ -26,31 +27,29 @@ public class QuestionService {
         return questionRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Frage nicht gefunden"));
     }
+
     public SaveResult saveAll(List<Question> questions) {
         List<Question> savedQuestions = new ArrayList<>();
         List<String> failedQuestionsText = new ArrayList<>();
-    
+
         for (Question question : questions) {
             try {
                 Optional<Question> existingQuestion = questionRepository.findByText(question.getText());
-    
+
                 if (existingQuestion.isPresent()) {
                     // Wenn die Frage bereits existiert, führe ein Update durch
                     Question updatedQuestion = existingQuestion.get();
-                    updatedQuestion.setText(question.getText()); 
+                    updatedQuestion.setText(question.getText());
                     savedQuestions.add(questionRepository.save(updatedQuestion));
-                } 
-                    savedQuestions.add(questionRepository.save(question));
-                
+                }
+                savedQuestions.add(questionRepository.save(question));
+
             } catch (Exception e) {
                 failedQuestionsText.add(question.getText());
             }
         }
         return new SaveResult(savedQuestions, failedQuestionsText);
     }
-    
-
-
 
     public Question createQuestion(QuestionDto questionDTO) {
         Question question = convertToEntity(questionDTO);
@@ -66,18 +65,16 @@ public class QuestionService {
         existingQuestion.setMaxPoints(questionDTO.getMaxPoints());
         // Optionen aktualisieren
         existingQuestion.setOptions(
-            questionDTO.getOptions().stream()
-                .map(this::convertOptionToEntity)
-                .peek(option -> option.setQuestion(existingQuestion))
-                .collect(Collectors.toList())
-        );
+                questionDTO.getOptions().stream()
+                        .map(this::convertOptionToEntity)
+                        .peek(option -> option.setQuestion(existingQuestion))
+                        .collect(Collectors.toList()));
 
         // Kategorien aktualisieren
         existingQuestion.setCategories(
-            questionDTO.getCategories().stream()
-                .map(this::convertCategoryToEntity)
-                .collect(Collectors.toList())
-        );
+                questionDTO.getCategories().stream()
+                        .map(this::convertCategoryToEntity)
+                        .collect(Collectors.toList()));
 
         return questionRepository.save(existingQuestion);
     }

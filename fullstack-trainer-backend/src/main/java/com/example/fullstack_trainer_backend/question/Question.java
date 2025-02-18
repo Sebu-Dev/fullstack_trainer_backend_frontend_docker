@@ -18,9 +18,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-
 
 @Data
 @Entity
@@ -32,24 +30,20 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "TEXT",unique = true)
+    @Column(columnDefinition = "TEXT", unique = true)
     private String text;
 
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR")
     private DifficultyEnum difficulty;
-    
+
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Option> options;
 
     @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(
-        name = "question_category",
-        joinColumns = @JoinColumn(name = "question_id"),
-        inverseJoinColumns = @JoinColumn(name = "category_id")
-    )
+    @JoinTable(name = "question_category", joinColumns = @JoinColumn(name = "question_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
     private List<Category> categories;
-    
+
     @Column(columnDefinition = "TEXT")
     private String explanation;
     @Column(columnDefinition = "TEXT")
