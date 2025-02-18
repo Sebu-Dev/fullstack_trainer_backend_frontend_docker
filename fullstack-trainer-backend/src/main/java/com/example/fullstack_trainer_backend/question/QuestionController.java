@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -81,13 +82,33 @@ public class QuestionController {
         if (file.isEmpty()) {
             return ResponseEntity.badRequest().body("Die Datei ist leer");
         }
-        
+    
         try {
+            // Fragen aus der Datei lesen
             List<Question> questions = objectMapper.readValue(file.getInputStream(), new TypeReference<>() {});
-            questionService.saveAll(questions);
-            return ResponseEntity.ok("Fragen erfolgreich gespeichert: " + questions.size());
+    
+            // Fragen speichern und Fehlerbehandlung durchführen
+            SaveResult saveResult = questionService.saveAll(questions);
+    
+            // Erfolgreich gespeicherte Fragen und fehlgeschlagene Fragen extrahieren
+            List<Question> successfullySavedQuestions = saveResult.getSavedQuestions();
+            List<String> failedQuestionsText = saveResult.getFailedQuestionsText();
+    
+            int failedCount = failedQuestionsText.size();
+            
+            // Rückgabemeldung je nach Erfolg oder teilweise fehlerhaftem Speichern
+            if (failedCount > 0) {
+                return ResponseEntity.status(HttpStatus.PARTIAL_CONTENT).body(
+                    "Einige Fragen konnten nicht gespeichert werden. Erfolgreich gespeichert: " +
+                    successfullySavedQuestions.size() + ", Fehlgeschlagen: " + failedCount + 
+                    ". Fehlende Fragen: " + String.join(", ", failedQuestionsText));
+            } else {
+                return ResponseEntity.ok("Fragen erfolgreich gespeichert: " + successfullySavedQuestions.size());
+            }
+    
         } catch (IOException e) {
             return ResponseEntity.badRequest().body("Fehler beim Verarbeiten der Datei: " + e.getMessage());
         }
     }
+    
 }

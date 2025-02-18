@@ -31,6 +31,8 @@ services:
       - app-net
     depends_on:
       - db
+    volumes:
+      - pg-Admin-data:/var/lib/pgadmin
 
   # Backend
   backend:
@@ -69,3 +71,4 @@ networks:
 
 volumes:
   db-data:
+  pg-Admin-data:

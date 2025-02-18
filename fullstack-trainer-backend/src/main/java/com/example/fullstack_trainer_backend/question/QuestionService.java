@@ -1,5 +1,8 @@
 package com.example.fullstack_trainer_backend.question;
 
+import java.util.ArrayList;
+import java.util.Optional;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +15,7 @@ import com.example.fullstack_trainer_backend.question.option.Option;
 public class QuestionService {
 
     @Autowired
+    
     private QuestionRepository questionRepository;
 
     public List<Question> getAllQuestions() {
@@ -22,9 +26,32 @@ public class QuestionService {
         return questionRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Frage nicht gefunden"));
     }
-    public List<Question> saveAll(List<Question> questions) {
-        return questionRepository.saveAll(questions);
+    public SaveResult saveAll(List<Question> questions) {
+        List<Question> savedQuestions = new ArrayList<>();
+        List<String> failedQuestionsText = new ArrayList<>();
+    
+        for (Question question : questions) {
+            try {
+                Optional<Question> existingQuestion = questionRepository.findByText(question.getText());
+    
+                if (existingQuestion.isPresent()) {
+                    // Wenn die Frage bereits existiert, führe ein Update durch
+                    Question updatedQuestion = existingQuestion.get();
+                    updatedQuestion.setText(question.getText()); 
+                    savedQuestions.add(questionRepository.save(updatedQuestion));
+                } 
+                    savedQuestions.add(questionRepository.save(question));
+                
+            } catch (Exception e) {
+                failedQuestionsText.add(question.getText());
+            }
+        }
+        return new SaveResult(savedQuestions, failedQuestionsText);
     }
+    
+
+
+
     public Question createQuestion(QuestionDto questionDTO) {
         Question question = convertToEntity(questionDTO);
         return questionRepository.save(question);
@@ -37,7 +64,6 @@ public class QuestionService {
         existingQuestion.setExplanation(questionDTO.getExplanation());
         existingQuestion.setImageUrl(questionDTO.getImageUrl());
         existingQuestion.setMaxPoints(questionDTO.getMaxPoints());
-
         // Optionen aktualisieren
         existingQuestion.setOptions(
             questionDTO.getOptions().stream()
