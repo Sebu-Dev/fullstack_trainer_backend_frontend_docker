@@ -1,4 +1,6 @@
 package com.example.fullstack_trainer_backend.question;
+
+import org.springframework.http.HttpStatus;
 import java.util.List;
 
 public class SaveResult {
@@ -10,7 +12,6 @@ public class SaveResult {
         this.failedQuestionsText = failedQuestionsText;
     }
 
-    // Getter und Setter
     public List<Question> getSavedQuestions() {
         return savedQuestions;
     }
@@ -25,5 +26,16 @@ public class SaveResult {
 
     public void setFailedQuestionsText(List<String> failedQuestionsText) {
         this.failedQuestionsText = failedQuestionsText;
+    }
+
+    public HttpStatus getStatus() {
+        return failedQuestionsText.isEmpty() ? HttpStatus.OK : HttpStatus.PARTIAL_CONTENT;
+    }
+
+    public String getMessage() {
+        if (failedQuestionsText.isEmpty()) {
+            return "Alle Fragen erfolgreich gespeichert.";
+        }
+        return "Einige Fragen konnten nicht gespeichert werden: " + String.join(", ", failedQuestionsText);
     }
 }

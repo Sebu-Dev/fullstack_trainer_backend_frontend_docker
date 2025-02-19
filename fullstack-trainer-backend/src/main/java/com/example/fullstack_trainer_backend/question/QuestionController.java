@@ -2,27 +2,14 @@ package com.example.fullstack_trainer_backend.question;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.stream.Collectors;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.web.bind.annotation.*;
-
 import com.example.fullstack_trainer_backend.question.dtos.QuestionDto;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
 @RestController
 @RequestMapping("/questions")
 @CrossOrigin(origins = "http://localhost:3000")
@@ -31,84 +18,73 @@ public class QuestionController {
     private final QuestionService questionService;
     private final ObjectMapper objectMapper;
 
-    
-
     public QuestionController(QuestionService questionService, ObjectMapper objectMapper) {
         this.questionService = questionService;
         this.objectMapper = objectMapper;
     }
+
     @GetMapping
-    public List<Question> getAllQuestions() {
-        return questionService.getAllQuestions();
+    public ResponseEntity<List<QuestionDto>> getAllQuestions() {
+        List<QuestionDto> questions = questionService.getAllQuestions();
+        return ResponseEntity.ok(questions);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Question> getQuestionById(@PathVariable Long id) {
-        return ResponseEntity.ok(questionService.getQuestionById(id));
+        return questionService.getQuestionById(id)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
     @PostMapping
     public ResponseEntity<Question> createQuestion(@RequestBody QuestionDto questionDto) {
-        Question createdQuestion = questionService.createQuestion(questionDto);
-        return ResponseEntity.ok(createdQuestion);
+        try {
+            // Der Service kümmert sich intern um Existenzprüfungen.
+            Question created = questionService.createQuestion(questionDto);
+            return ResponseEntity.status(HttpStatus.CREATED).body(created);
+        } catch (IllegalArgumentException ex) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+        }
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Question> updateQuestion(@PathVariable Long id, @RequestBody QuestionDto questionDto) {
-        Question updatedQuestion = questionService.updateQuestion(id, questionDto);
-        return ResponseEntity.ok(updatedQuestion);
+        return questionService.updateQuestion(id, questionDto)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteQuestion(@PathVariable Long id) {
-        questionService.deleteQuestion(id);
-        return ResponseEntity.ok("Frage gelöscht");
+        if (questionService.deleteQuestion(id)) {
+            return ResponseEntity.ok("Frage gelöscht");
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Frage nicht gefunden");
     }
 
+    /**
+     * Bulk-Import: Fügt nur neue Fragen ein, vorhandene werden übersprungen.
+     */
     @PostMapping("/bulk")
-    public ResponseEntity<?> bulkCreateQuestions(@RequestBody List<QuestionDto> questionsDTO) {
-        questionsDTO.forEach(System.out::println);
-        try {
-            List<Question> questions = questionsDTO.stream()
-                    .map(questionService::createQuestion)
-                    .collect(Collectors.toList());
-            return ResponseEntity.ok(questions);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Fehler bei der Anfrage: " + e.getMessage());
-        }
+    public ResponseEntity<String> bulkCreateQuestions(@RequestBody List<QuestionDto> questionDtos) {
+        SaveResult result = questionService.saveBulk(questionDtos);
+        return ResponseEntity.status(result.getStatus()).body(result.getMessage());
     }
+
+    /**
+     * Datei-Upload: Aktualisiert vorhandene Fragen und fügt neue ein.
+     */
     @PostMapping("/upload")
     public ResponseEntity<String> uploadQuestions(@RequestParam("file") MultipartFile file) {
         if (file.isEmpty()) {
             return ResponseEntity.badRequest().body("Die Datei ist leer");
         }
-    
         try {
-            // Fragen aus der Datei lesen
-            List<Question> questions = objectMapper.readValue(file.getInputStream(), new TypeReference<>() {});
-    
-            // Fragen speichern und Fehlerbehandlung durchführen
-            SaveResult saveResult = questionService.saveAll(questions);
-    
-            // Erfolgreich gespeicherte Fragen und fehlgeschlagene Fragen extrahieren
-            List<Question> successfullySavedQuestions = saveResult.getSavedQuestions();
-            List<String> failedQuestionsText = saveResult.getFailedQuestionsText();
-    
-            int failedCount = failedQuestionsText.size();
-            
-            // Rückgabemeldung je nach Erfolg oder teilweise fehlerhaftem Speichern
-            if (failedCount > 0) {
-                return ResponseEntity.status(HttpStatus.PARTIAL_CONTENT).body(
-                    "Einige Fragen konnten nicht gespeichert werden. Erfolgreich gespeichert: " +
-                    successfullySavedQuestions.size() + ", Fehlgeschlagen: " + failedCount + 
-                    ". Fehlende Fragen: " + String.join(", ", failedQuestionsText));
-            } else {
-                return ResponseEntity.ok("Fragen erfolgreich gespeichert: " + successfullySavedQuestions.size());
-            }
-    
+            List<Question> question = objectMapper.readValue(file.getInputStream(), new TypeReference<List<Question>>() {});
+            SaveResult result = questionService.saveAll(question);
+            return ResponseEntity.status(result.getStatus()).body(result.getMessage());
         } catch (IOException e) {
             return ResponseEntity.badRequest().body("Fehler beim Verarbeiten der Datei: " + e.getMessage());
         }
     }
-    
 }

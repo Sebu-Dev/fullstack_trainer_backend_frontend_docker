@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 
-import { useCallback, useMemo, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { BaseButton, SecondaryButton } from "sebu-dev-react-lib";
 import { useClickOutside } from "../../hooks/useClickOutside";
 import useQuizStore from "../../store/QuizStore";
+import { useDebug } from "../../hooks/useDebug";
 interface FilterSidebarProps {
   isOpen: boolean;
   onClose: () => void;
@@ -11,14 +12,16 @@ interface FilterSidebarProps {
 
 export const FilterSidebar = ({ isOpen, onClose }: FilterSidebarProps) => {
   const {
-    getAllCategories,
+    categories: allCategories,
     selectedCategories,
     setSelectedCategories,
     filterQuestions,
   } = useQuizStore();
-
-  const allCategories = useMemo(() => getAllCategories(), [getAllCategories]);
+useDebug();
+  // const allCategories = useMemo(() => getAllCategories(), [getAllCategories]);
   const sidebarRef = useRef<HTMLDivElement>(null);
+  useState()
+
 
   useClickOutside(sidebarRef, () => {
     ("useClickOutside");
@@ -54,7 +57,7 @@ export const FilterSidebar = ({ isOpen, onClose }: FilterSidebarProps) => {
 
         {/* Kategorienliste */}
         <div className=" overflow-y-auto flex-1">
-          {allCategories.map((category) => (
+          {allCategories?.map((category) => (
             <BaseButton
               key={category}
               animationHover

@@ -42,8 +42,9 @@ const QuestionSyncButton = () => {
       return;
     }
 
-    const preparedQuestions = questionList.map(({ id, ...question }) => ({
+    const preparedQuestions = questionList.map(({ ...question }) => ({
       ...question,
+      id:1,
       difficulty: mapDifficultyToEnum(question.difficulty) ?? null,
       explanation: question.explanation ?? null,
       imageUrl: question.imageUrl ?? null,
@@ -51,7 +52,6 @@ const QuestionSyncButton = () => {
     }));
 
     try {
-      console.log(preparedQuestions);
       await axios.post("http://localhost:8080/questions/bulk", preparedQuestions);
       console.log("Fragen erfolgreich in die Datenbank geladen!");
     } catch (error) {

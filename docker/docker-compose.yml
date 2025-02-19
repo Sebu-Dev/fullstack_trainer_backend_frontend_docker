@@ -55,6 +55,7 @@ services:
   # Frontend
   frontend:
     container_name: Fullstack_trainer_frontend
+
     build:
       context: ../fullstack-trainer-frontend/
       dockerfile: Dockerfile

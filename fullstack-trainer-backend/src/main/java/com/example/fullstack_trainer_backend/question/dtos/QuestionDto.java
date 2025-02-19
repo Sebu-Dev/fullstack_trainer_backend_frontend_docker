@@ -11,6 +11,7 @@ import lombok.ToString;
 @Setter
 @Getter
 public class QuestionDto {
+    private Long id;
     private String text;
     private List<String> categories; 
     private String difficulty;

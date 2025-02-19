@@ -24,7 +24,6 @@ const QuestionUpload = () => {
         method: "POST",
         body: formData,
       });
-
       const result = await response.text();
       setMessage(result);
     } catch (error) {

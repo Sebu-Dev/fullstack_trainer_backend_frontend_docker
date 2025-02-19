@@ -8,5 +8,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface QuestionRepository extends JpaRepository<Question, Long> {
     Optional<Question> findByText(String text);
-
 }

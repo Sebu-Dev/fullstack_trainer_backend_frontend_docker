@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { PrimaryButton, SecondaryButton } from "sebu-dev-react-lib";
-import QuestionSyncButton from "../../api/useQuestionSync";
+import QuestionSyncButton from "../../api/UseQuestionSync";
 import { useQuizNavigation } from "../../routes/useQuizNavigation";
 import useQuizStore from "../../store/QuizStore";
 import { CsvDownloadButton } from "../CsvDownloadButton";
