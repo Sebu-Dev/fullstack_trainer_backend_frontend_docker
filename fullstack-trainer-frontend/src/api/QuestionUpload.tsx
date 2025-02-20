@@ -1,5 +1,6 @@
-import { memo, useState } from "react";
+import {  useState } from "react";
 import axios from "axios";
+import withFeatureFlag from "../hocs/withFeatureFlag";
 
 const QuestionUpload = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -85,4 +86,4 @@ const QuestionUpload = () => {
   );
 };
 
-export default QuestionUpload;
+export default withFeatureFlag(QuestionUpload, "dev");

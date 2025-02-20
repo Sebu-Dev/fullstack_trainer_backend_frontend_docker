@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { PrimaryButton, SecondaryButton } from "sebu-dev-react-lib";
-import QuestionSyncButton from "../../api/UseQuestionSync";
+import QuestionSyncButton from "../../api/useQuestionSync";
 import { useQuizNavigation } from "../../routes/useQuizNavigation";
 import useQuizStore from "../../store/QuizStore";
 import { CsvDownloadButton } from "../CsvDownloadButton";
 import { FilterSidebar } from "../Filter/FilterSidebar";
 import QuestionUpload from "../../api/QuestionUpload";
-import { BUILD_TIME } from "../../config/apiVariables";
 export const LandingPage = () => {
   const { generateQuizSet } = useQuizStore();
   const [toggleDownload, setToggleDownload] = useState(false);
@@ -69,7 +68,6 @@ export const LandingPage = () => {
         <CsvDownloadButton setToggleDownload={setToggleDownload} />
         <QuestionSyncButton></QuestionSyncButton>
         <QuestionUpload></QuestionUpload>
-        <p>build time {BUILD_TIME}</p>
       </div>
     </div>
   );

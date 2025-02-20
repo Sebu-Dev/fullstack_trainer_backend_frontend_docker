@@ -2,6 +2,7 @@ import axios from "axios";
 import { FaFile } from "react-icons/fa";
 import { IconButton } from "sebu-dev-react-lib";
 import questionData from "../Question/data/questionData";
+import withFeatureFlag from "../hocs/withFeatureFlag";
 
 const QuestionSyncButton = () => {
   const questionList = questionData;
@@ -82,5 +83,4 @@ const QuestionSyncButton = () => {
     />
   );
 };
-
-export default QuestionSyncButton;
+export default withFeatureFlag(QuestionSyncButton, "dev");
