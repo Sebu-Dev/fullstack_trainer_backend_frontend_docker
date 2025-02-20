@@ -10,7 +10,9 @@ RUN rm -rf node_modules && npm install
 # Kopiere den Rest des Projekts und führe den Build aus
 COPY . .
 
-RUN rm -rf dist && npm run build
+RUN rm -rf dist && npm ci && npm run build
+
+RUN export VITE_BUILD_TIME=$(date)
 # Baue die Anwendung
 RUN npm run build
 

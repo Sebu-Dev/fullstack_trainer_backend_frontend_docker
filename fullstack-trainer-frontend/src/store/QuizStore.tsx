@@ -34,7 +34,7 @@ const useQuizStore = create<QuizStore>((set, get) => ({
     /** Lädt die Fragen aus der API oder nutzt lokale Daten */
     loadQuestions: async () => {
       const questions = await apiService.fetchQuestions();
-     const cats = FilterService.getAllCategories(get().questionList);
+     const cats = FilterService.getAllCategories(questions);
       set({ questionList: questions, categories: cats });
     },
   

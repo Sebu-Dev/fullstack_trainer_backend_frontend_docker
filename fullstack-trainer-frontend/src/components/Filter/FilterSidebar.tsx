@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { BaseButton, SecondaryButton } from "sebu-dev-react-lib";
 import { useClickOutside } from "../../hooks/useClickOutside";
 import useQuizStore from "../../store/QuizStore";
-import { useDebug } from "../../hooks/useDebug";
 interface FilterSidebarProps {
   isOpen: boolean;
   onClose: () => void;
@@ -17,7 +16,6 @@ export const FilterSidebar = ({ isOpen, onClose }: FilterSidebarProps) => {
     setSelectedCategories,
     filterQuestions,
   } = useQuizStore();
-useDebug();
   // const allCategories = useMemo(() => getAllCategories(), [getAllCategories]);
   const sidebarRef = useRef<HTMLDivElement>(null);
   useState()

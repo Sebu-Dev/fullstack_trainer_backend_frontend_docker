@@ -1,22 +1,42 @@
 package com.example.fullstack_trainer_backend.question;
 
-import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.example.fullstack_trainer_backend.question.dtos.QuestionDto;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.example.fullstack_trainer_backend.question.dtos.QuestionDto;
+import com.example.fullstack_trainer_backend.question.dtos.ValidationErrorResponse;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 @RequestMapping("/questions")
 @CrossOrigin(origins = "http://localhost:3000")
 public class QuestionController {
 
+    private static final Logger logger = LoggerFactory.getLogger(QuestionController.class);
+
     private final QuestionService questionService;
     private final ObjectMapper objectMapper;
+
+    @Value("${feature.upload.enabled:false}")
+    private boolean uploadEnabled;
 
     public QuestionController(QuestionService questionService, ObjectMapper objectMapper) {
         this.questionService = questionService;
@@ -37,21 +57,24 @@ public class QuestionController {
     }
 
     @PostMapping
-    public ResponseEntity<Question> createQuestion(@RequestBody QuestionDto questionDto) {
+    public ResponseEntity<?> createQuestion(@RequestBody QuestionDto questionDto) {
         try {
-            // Der Service kümmert sich intern um Existenzprüfungen.
             Question created = questionService.createQuestion(questionDto);
             return ResponseEntity.status(HttpStatus.CREATED).body(created);
         } catch (IllegalArgumentException ex) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
         }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Question> updateQuestion(@PathVariable Long id, @RequestBody QuestionDto questionDto) {
-        return questionService.updateQuestion(id, questionDto)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+    public ResponseEntity<?> updateQuestion(@PathVariable Long id, @RequestBody QuestionDto questionDto) {
+        try {
+            return questionService.updateQuestion(id, questionDto)
+                    .map(ResponseEntity::ok)
+                    .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+        } catch (IllegalArgumentException ex) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+        }
     }
 
     @DeleteMapping("/{id}")
@@ -62,29 +85,40 @@ public class QuestionController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Frage nicht gefunden");
     }
 
-    /**
-     * Bulk-Import: Fügt nur neue Fragen ein, vorhandene werden übersprungen.
-     */
     @PostMapping("/bulk")
-    public ResponseEntity<String> bulkCreateQuestions(@RequestBody List<QuestionDto> questionDtos) {
-        SaveResult result = questionService.saveBulk(questionDtos);
-        return ResponseEntity.status(result.getStatus()).body(result.getMessage());
+    public ResponseEntity<SaveResultWithErrors> bulkCreateQuestions(@RequestBody List<QuestionDto> questionDtos) {
+        SaveResultWithErrors result = questionService.saveBulk(questionDtos);
+        HttpStatus status = result.getValidationErrors().isEmpty() ? HttpStatus.OK : HttpStatus.BAD_REQUEST;
+        return ResponseEntity.status(status).body(result);
     }
 
-    /**
-     * Datei-Upload: Aktualisiert vorhandene Fragen und fügt neue ein.
-     */
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadQuestions(@RequestParam("file") MultipartFile file) {
-        if (file.isEmpty()) {
-            return ResponseEntity.badRequest().body("Die Datei ist leer");
+    public ResponseEntity<SaveResultWithErrors> uploadQuestions(@RequestParam("file") MultipartFile file) {
+        if (!uploadEnabled) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(new SaveResultWithErrors(
+                    new SaveResult(Collections.emptyList(), List.of("Upload-Funktion ist deaktiviert")),
+                    Collections.emptyList()));
         }
+
+        if (file.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new SaveResultWithErrors(
+                    new SaveResult(Collections.emptyList(), List.of("Die Datei ist leer")),
+                    List.of(new ValidationErrorResponse("Datei", List.of("Die Datei ist leer"), null))));
+        }
+
         try {
-            List<Question> question = objectMapper.readValue(file.getInputStream(), new TypeReference<List<Question>>() {});
-            SaveResult result = questionService.saveAll(question);
-            return ResponseEntity.status(result.getStatus()).body(result.getMessage());
-        } catch (IOException e) {
-            return ResponseEntity.badRequest().body("Fehler beim Verarbeiten der Datei: " + e.getMessage());
+            List<QuestionDto> questionsDto = objectMapper.readValue(file.getInputStream(),
+                    new TypeReference<List<QuestionDto>>() {
+                    });
+            SaveResultWithErrors result = questionService.saveAll(questionsDto);
+            HttpStatus status = result.getValidationErrors().isEmpty() ? HttpStatus.OK : HttpStatus.BAD_REQUEST;
+            return ResponseEntity.status(status).body(result);
+        } catch (Exception e) {
+            String errorMessage = "Fehler beim Verarbeiten der Datei: " + e.getMessage();
+            logger.error(errorMessage, e);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new SaveResultWithErrors(
+                    new SaveResult(Collections.emptyList(), List.of(errorMessage)),
+                    List.of(new ValidationErrorResponse("Datei", List.of(errorMessage), null))));
         }
     }
 }

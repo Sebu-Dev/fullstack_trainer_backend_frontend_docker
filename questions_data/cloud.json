@@ -8,10 +8,7 @@
         { "text": "Ein VPN-Dienst", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Cloud" },
-        { "name": "Cloud Networking" }
-      ],
+      "categories": ["Cloud", "Cloud Networking"],
       "explanation": "Ein Load Balancer verteilt den Netzwerkverkehr auf mehrere Server, um Last zu minimieren und Verfügbarkeit zu erhöhen."
     },
     {
@@ -23,10 +20,7 @@
         { "text": "Storage Load Balancer und Compute Load Balancer", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Cloud" },
-        { "name": "Cloud Networking" }
-      ],
+      "categories": ["Cloud", "Cloud Networking"],
       "explanation": "Application Load Balancer (Layer 7) und Network Load Balancer (Layer 4) sind die Haupttypen."
     },
     {
@@ -38,10 +32,7 @@
         { "text": "Erweiterung des Datenspeichers", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Cloud" },
-        { "name": "Cloud Scalability" }
-      ],
+      "categories": ["Cloud", "Cloud Scalability"],
       "explanation": "Skalierung bedeutet, dass Ressourcen automatisch oder manuell angepasst werden, um Laständerungen zu bewältigen."
     },
     {
@@ -53,10 +44,7 @@
         { "text": "Horizontale Skalierung ist teurer als vertikale Skalierung", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Cloud" },
-        { "name": "Cloud Scalability" }
-      ],
+      "categories": ["Cloud", "Cloud Scalability"],
       "explanation": "Vertikale Skalierung (Scaling Up) erhöht Ressourcen eines bestehenden Servers, horizontale Skalierung (Scaling Out) fügt neue Instanzen hinzu."
     },
     {
@@ -68,10 +56,7 @@
         { "text": "Eine Architektur mit festen Servern", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Cloud" },
-        { "name": "Cloud Serverless" }
-      ],
+      "categories": ["Cloud", "Cloud Serverless"],
       "explanation": "Serverlose Architekturen, wie AWS Lambda oder Azure Functions, verwalten die Infrastruktur automatisch und skalieren bedarfsgerecht."
     },
     {
@@ -83,10 +68,7 @@
         { "text": "Erfordert keine Netzwerkanbindung", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Cloud" },
-        { "name": "Cloud Serverless" }
-      ],
+      "categories": ["Cloud", "Cloud Serverless"],
       "explanation": "Serverlose Architekturen skalieren automatisch nach Bedarf und berechnen nur die tatsächlich genutzte Rechenleistung."
     },
     {
@@ -98,10 +80,7 @@
         { "text": "Ein Load Balancer", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Cloud" },
-        { "name": "Cloud Networking" }
-      ],
+      "categories": ["Cloud", "Cloud Networking"],
       "explanation": "CDNs speichern Inhalte an mehreren Standorten weltweit, um sie schneller an Benutzer auszuliefern."
     },
     {
@@ -113,10 +92,7 @@
         { "text": "Dedicated Server, Shared Hosting, Cloud Hosting", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Cloud" },
-        { "name": "Cloud Deployment" }
-      ],
+      "categories": ["Cloud", "Cloud Deployment"],
       "explanation": "Public Cloud ist für alle zugänglich, Private Cloud exklusiv für ein Unternehmen, und Hybrid Cloud kombiniert beide Modelle."
     },
     {
@@ -128,10 +104,7 @@
         { "text": "Ermöglicht bessere Hardwareleistung", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Cloud" },
-        { "name": "Cloud Automation" }
-      ],
+      "categories": ["Cloud", "Cloud Automation"],
       "explanation": "Mit IaC (z. B. Terraform oder AWS CloudFormation) können Infrastrukturen als Code verwaltet und reproduzierbar bereitgestellt werden."
     },
     {
@@ -143,10 +116,7 @@
         { "text": "Frontend, Backend, Middleware", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Cloud" },
-        { "name": "Cloud Services" }
-      ],
+      "categories": ["Cloud", "Cloud Services"],
       "explanation": "IaaS (Infrastructure as a Service) bietet virtuelle Maschinen, PaaS (Platform as a Service) Entwicklungsplattformen und SaaS (Software as a Service) fertige Softwarelösungen."
     }
   ]

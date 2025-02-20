@@ -7,9 +7,9 @@ services:
     container_name: PostgreSQL
     restart: always
     environment:
-      POSTGRES_DB: ${POSTGRES_DB} # aus .env geladen
-      POSTGRES_USER: ${POSTGRES_USER} # aus .env geladen
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD} # aus .env geladen
+      POSTGRES_DB: ${POSTGRES_DB} 
+      POSTGRES_USER: ${POSTGRES_USER} 
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD} 
       PGDATA: /var/lib/postgresql/data
     volumes:
       - db-data:/var/lib/postgresql/data
@@ -17,7 +17,8 @@ services:
       - 5432:5432
     networks:
       - app-net
-    # pgAdmin
+
+  # pgAdmin
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgAdmin
@@ -41,10 +42,12 @@ services:
       context: ../fullstack-trainer-backend/
       dockerfile: Dockerfile
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/${POSTGRES_DB} # aus .env geladen
-      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER} # aus .env geladen
-      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD} # aus .env geladen
-      SPRING_JPA_HIBERNATE_DDL_AUTO: ${SPRING_JPA_HIBERNATE_DDL_AUTO} # aus .env geladen
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/${POSTGRES_DB}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
+      SPRING_JPA_HIBERNATE_DDL_AUTO: ${SPRING_JPA_HIBERNATE_DDL_AUTO}
+      SPRING_PROFILES_ACTIVE: development # Aktiviert das Development-Profil
+      # Alternative: FEATURE_UPLOAD_ENABLED=true (wenn Sie keine Profile nutzen)
     ports:
       - "8080:8080"
     networks:
@@ -55,10 +58,11 @@ services:
   # Frontend
   frontend:
     container_name: Fullstack_trainer_frontend
-
     build:
       context: ../fullstack-trainer-frontend/
       dockerfile: Dockerfile
+    environment:
+      REACT_APP_FEATURE_UPLOAD_ENABLED: "true" 
     ports:
       - "3000:80"
     networks:

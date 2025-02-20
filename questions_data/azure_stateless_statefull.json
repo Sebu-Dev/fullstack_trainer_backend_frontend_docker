@@ -8,10 +8,7 @@
       { "text": "Eine Anwendung, die auf einem Server läuft", "isCorrect": false }
     ],
     "difficulty": "MEDIUM",
-    "categories": [
-      { "name": "Cloud" },
-      { "name": "Cloud Stateful/Stateless" }
-    ],
+    "categories": [ "Cloud" , "Cloud Stateful/Stateless"  ],
     "explanation": "Stateless Anwendungen speichern keine Sitzungsdaten zwischen Anfragen."
   },
   {
@@ -23,10 +20,7 @@
       { "text": "Eine Anwendung, die keine Datenbank benötigt", "isCorrect": false }
     ],
     "difficulty": "MEDIUM",
-    "categories": [
-      { "name": "Cloud" },
-      { "name": "Cloud Stateful/Stateless" }
-    ],
+    "categories": [ "Cloud" , "Cloud Stateful/Stateless"  ],
     "explanation": "Stateful Anwendungen speichern Daten über die Sitzungsdauer hinweg."
   },
   {
@@ -38,10 +32,7 @@
       { "text": "Azure Kubernetes Service", "isCorrect": false }
     ],
     "difficulty": "MEDIUM",
-    "categories": [
-      { "name": "Azure" },
-      { "name": "Stateful/Stateless" }
-    ],
+    "categories": [ "Azure" , "Stateful/Stateless"  ],
     "explanation": "Azure Functions sind serverlose, stateless Anwendungen, die auf Anfrage ausgeführt werden."
   },
   {
@@ -53,25 +44,16 @@
       { "text": "Auf der CPU des Servers", "isCorrect": false }
     ],
     "difficulty": "MEDIUM",
-    "categories": [
-      { "name": "Cloud" },
-      { "name": "Cloud Stateful/Stateless" }
-    ],
+    "categories": [ "Cloud" , "Cloud Stateful/Stateless"  ],
     "explanation": "Stateless Anwendungen speichern Nutzerdaten nicht selbst, sondern nutzen externe Datenbanken."
   },
   {
     "text": "Welche Art von Anwendung eignet sich am besten für Microservices?",
     "options": [
-      { "text": "Stateless Anwendungen", "isCorrect": true },
-      { "text": "Stateful Anwendungen", "isCorrect": false },
-      { "text": "Monolithische Anwendungen", "isCorrect": false },
-      { "text": "Desktop-Anwendungen", "isCorrect": false }
+
     ],
     "difficulty": "MEDIUM",
-    "categories": [
-      { "name": "Microservices" },
-      { "name": "Stateful/Stateless" }
-    ],
+    "categories": [ "Microservices" , "Stateful/Stateless"  ],
     "explanation": "Stateless Anwendungen eignen sich für Microservices, da sie skalierbarer und ausfallsicherer sind."
   }
 ]

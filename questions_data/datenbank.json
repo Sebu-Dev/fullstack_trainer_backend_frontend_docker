@@ -8,10 +8,7 @@
         { "text": "Keine transitiven Abhängigkeiten", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Normalformen" }
-      ],
+      "categories": ["Datenbanken" , "Normalformen" ],
       "explanation": "Die 1NF fordert, dass jede Zelle nur einen atomaren Wert enthält."
     },
     {
@@ -23,10 +20,7 @@
         { "text": "Jedes Attribut muss ein Schlüssel sein", "isCorrect": false }
       ],
       "difficulty": "HARD",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Normalformen" }
-      ],
+      "categories": ["Datenbanken" , "Normalformen" ],
       "explanation": "2NF erfordert, dass die Tabelle bereits in 1NF vorliegt und keine partiellen Abhängigkeiten existieren."
     },
     {
@@ -38,10 +32,7 @@
         { "text": "Es dürfen keine zusammengesetzten Schlüssel existieren", "isCorrect": false }
       ],
       "difficulty": "HARD",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Normalformen" }
-      ],
+      "categories": ["Datenbanken" , "Normalformen" ],
       "explanation": "Die 3NF setzt voraus, dass keine transitiven Abhängigkeiten existieren und alle Attribute vom Primärschlüssel abhängen."
     },
     {
@@ -53,10 +44,7 @@
         { "text": "Keine der genannten", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Normalformen" }
-      ],
+      "categories": ["Datenbanken" , "Normalformen" ],
       "explanation": "Alle drei Normalformen tragen in unterschiedlichem Maße zur Reduktion von Datenredundanz bei."
     },
     {
@@ -68,10 +56,7 @@
         { "text": "Vereinfachte Datenstruktur", "isCorrect": true }
       ],
       "difficulty": "HARD",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Normalformen" }
-      ],
+      "categories": ["Datenbanken" , "Normalformen" ],
       "explanation": "Normalisierung senkt Redundanz, verbessert Integrität und vereinfacht die Datenstruktur, kann jedoch die Abfrageleistung mindern."
     },
     {
@@ -83,10 +68,7 @@
         { "text": "Starke Konsistenz", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "NoSQL" }
-      ],
+      "categories": ["Datenbanken" , "NoSQL" ],
       "explanation": "NoSQL-Systeme bieten oft ein flexibles Schema und horizontale Skalierbarkeit, verzichten aber teilweise auf starke Konsistenz und umfassende Join-Unterstützung."
     },
     {
@@ -98,9 +80,7 @@
         { "text": "Erhöhung der Normalform", "isCorrect": false }
       ],
       "difficulty": "HARD",
-      "categories": [
-        { "name": "Datenbanken" }
-      ],
+      "categories": ["Datenbanken" ],
       "explanation": "Indexierung und De-normalisierung sind gängige Maßnahmen zur Leistungsverbesserung, während Fremdschlüssel und weitere Normalisierungsstufen primär der Integrität dienen."
     },
     {
@@ -112,10 +92,7 @@
         { "text": "Graph-Datenbanken", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "SQL" }
-      ],
+      "categories": ["Datenbanken" , "SQL" ],
       "explanation": "SQL-Datenbanken sind bekannt für ihre Unterstützung von ACID-Eigenschaften."
     },
     {
@@ -127,10 +104,7 @@
         { "text": "Sie bieten meistens eine schwache Konsistenz", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "SQL" }
-      ],
+      "categories": ["Datenbanken" , "SQL" ],
       "explanation": "Relationale Datenbanken nutzen feste Schemas und SQL und garantieren in der Regel starke Konsistenz."
     },
     {
@@ -142,10 +116,7 @@
         { "text": "Durability", "isCorrect": true }
       ],
       "difficulty": "HARD",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "ACID" }
-      ],
+      "categories": ["Datenbanken" , "ACID" ],
       "explanation": "Alle vier Eigenschaften – Atomicity, Consistency, Isolation und Durability – sind essenziell für die Transaktionssicherheit."
     },
     {
@@ -157,10 +128,7 @@
         { "text": "Stored Procedures", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "ERM" }
-      ],
+      "categories": ["Datenbanken" , "ERM" ],
       "explanation": "Das ERM verwendet Entitäten, Attribute und Beziehungen zur Modellierung von Daten."
     },
     {
@@ -172,10 +140,7 @@
         { "text": "Constraint Index", "isCorrect": false }
       ],
       "difficulty": "HARD",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Index" }
-      ],
+      "categories": ["Datenbanken" , "Index" ],
       "explanation": "B-Tree, Hash und Full-Text Indizes sind verbreitete Methoden, während Constraint Index kein gängiger Begriff ist."
     },
     {
@@ -187,10 +152,7 @@
         { "text": "Einfachere Datenmodellierung", "isCorrect": true }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Views" }
-      ],
+      "categories": ["Datenbanken" , "Views" ],
       "explanation": "Materialized Views speichern Abfrageergebnisse persistent, was die Abfrageleistung verbessert, sie werden jedoch nicht automatisch aktualisiert."
     },
     {
@@ -202,10 +164,7 @@
         { "text": "Datenmigration zwischen Datenbanken", "isCorrect": true }
       ],
       "difficulty": "HARD",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Temporäre Tabellen" }
-      ],
+      "categories": ["Datenbanken" , "Temporäre Tabellen" ],
       "explanation": "Temporäre Tabellen werden genutzt, um Daten temporär während komplexer Abfragen, Berichten oder Migrationen zu speichern."
     },
     {
@@ -217,10 +176,7 @@
         { "text": "Datenkonsistenz über verschiedene Transaktionen", "isCorrect": false }
       ],
       "difficulty": "HARD",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "SQL" }
-      ],
+      "categories": ["Datenbanken" , "SQL" ],
       "explanation": "CTEs verbessern die Lesbarkeit und ermöglichen die Wiederverwendung von Zwischenergebnissen innerhalb einer Abfrage."
     },
     {
@@ -232,10 +188,7 @@
         { "text": "Sicherung von Daten", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Trigger" }
-      ],
+      "categories": ["Datenbanken" , "Trigger" ],
       "explanation": "Trigger können automatisch bei INSERT-, UPDATE- oder DELETE-Operationen ausgelöst werden, um Aktionen wie Validierung oder Benachrichtigung durchzuführen."
     },
     {
@@ -247,10 +200,7 @@
         { "text": "Datenvisualisierung", "isCorrect": false }
       ],
       "difficulty": "HARD",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Prozeduren" }
-      ],
+      "categories": ["Datenbanken" , "Prozeduren" ],
       "explanation": "Stored Procedures werden zur Datenmanipulation, Optimierung von Abfragen und Durchführung von Sicherheitskontrollen eingesetzt."
     },
     {
@@ -262,10 +212,7 @@
         { "text": "Data Type", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Constraints" }
-      ],
+      "categories": ["Datenbanken" , "Constraints" ],
       "explanation": "Typische Constraints sind Primary Key, Foreign Key und Check-Constraints, während Datentypen keine Constraints darstellen."
     },
     {
@@ -277,10 +224,7 @@
         { "text": "Datenkompression", "isCorrect": false }
       ],
       "difficulty": "HARD",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Schema-Migrationen" }
-      ],
+      "categories": ["Datenbanken" , "Schema-Migrationen" ],
       "explanation": "Schema-Migrationen umfassen in der Regel strukturelle Änderungen an Tabellen und den Transfer von Daten."
     },
     {
@@ -292,10 +236,7 @@
         { "text": "Partitionstoleranz kann in jedem verteilten System umgangen werden.", "isCorrect": false }
       ],
       "difficulty": "HARD",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "CAP-Theorem" }
-      ],
+      "categories": ["Datenbanken" , "CAP-Theorem" ],
       "explanation": "Das CAP-Theorem besagt, dass ein verteiltes System immer nur zwei der drei Eigenschaften vollständig gewährleisten kann."
     },
     {
@@ -307,10 +248,7 @@
         { "text": "Sie sind ideal für Echtzeit-Datenaktualisierungen.", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Materialized Views" }
-      ],
+      "categories": ["Datenbanken" , "Materialized Views" ],
       "explanation": "Materialized Views speichern Abfrageergebnisse, was wiederholte Abfragen beschleunigt; eine automatische Aktualisierung erfolgt jedoch nicht."
     },
     {
@@ -322,10 +260,7 @@
         { "text": "Sie sind eine Alternative zu Indexen zur Leistungssteigerung.", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Temporäre Tabellen" }
-      ],
+      "categories": ["Datenbanken" , "Temporäre Tabellen" ],
       "explanation": "Temporäre Tabellen existieren nur temporär und können zur Optimierung komplexer Abfragen beitragen."
     },
     {
@@ -337,10 +272,7 @@
         { "text": "Sie kann die Abfrageperformance verbessern, indem sie Zwischenergebnisse speichert.", "isCorrect": true }
       ],
       "difficulty": "HARD",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Common Table Expression (CTE)" }
-      ],
+      "categories": ["Datenbanken" , "Common Table Expression (CTE)" ],
       "explanation": "CTEs werden innerhalb einer SQL-Anweisung definiert, können rekursiv sein und verbessern oft die Lesbarkeit sowie Performance von Abfragen."
     },
     {
@@ -352,10 +284,7 @@
         { "text": "Relationale Normalisierung", "isCorrect": false }
       ],
       "difficulty": "HARD",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Indizes" }
-      ],
+      "categories": ["Datenbanken" , "Indizes" ],
       "explanation": "B-Baum-, Hash- und Bitmap-Indizes sind gängige Indizierungsstrategien; relationale Normalisierung dient hingegen der Reduktion von Redundanz."
     },
     {
@@ -367,10 +296,7 @@
         { "text": "Sie können unerwartete Nebenwirkungen verursachen, wenn sie nicht sorgfältig implementiert werden.", "isCorrect": true }
       ],
       "difficulty": "HARD",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Trigger" }
-      ],
+      "categories": ["Datenbanken" , "Trigger" ],
       "explanation": "Trigger werden automatisch ausgelöst und können bei unsachgemäßer Implementierung auch unerwartete Effekte haben."
     },
     {
@@ -382,10 +308,7 @@
         { "text": "Einheitlicher Konsistenzmodus für alle Regionen", "isCorrect": false }
       ],
       "difficulty": "HARD",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Azure Cosmos DB" }
-      ],
+      "categories": ["Datenbanken" , "Azure Cosmos DB" ],
       "explanation": "Azure Cosmos DB zeichnet sich durch globale Verteilung und Unterstützung mehrerer API-Modelle aus, ist jedoch nicht an relationale Schemata gebunden."
     },
     {
@@ -397,10 +320,7 @@
         { "text": "Einsatz von temporären Tabellen zur Versionierung", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Schema-Migrationen" }
-      ],
+      "categories": ["Datenbanken" , "Schema-Migrationen" ],
       "explanation": "Schema-Migrationen erfolgen häufig mittels DDL-Skripten, Migrations-Frameworks oder ORM-Tools – temporäre Tabellen kommen dabei üblicherweise nicht zum Einsatz."
     },
     {
@@ -412,10 +332,7 @@
         { "text": "Automatisches Backup", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Audit-Logs" }
-      ],
+      "categories": ["Datenbanken" , "Audit-Logs" ],
       "explanation": "Audit-Logs dienen der lückenlosen Nachverfolgung von Änderungen und Aktivitäten, was insbesondere im Bereich Compliance und Sicherheit wichtig ist."
     },
     {
@@ -427,11 +344,7 @@
         { "text": "Ungeeignet für große Datenmengen", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "NoSQL" },
-        { "name": "Dokumentenbasierte Systeme" }
-      ],
+      "categories": ["Datenbanken" , "NoSQL" , "Dokumentenbasierte Systeme" ],
       "explanation": "Dokumentenbasierte Systeme bieten ein flexibles Schema und sind prädestiniert für unstrukturierte oder semi-strukturierte Daten."
     },
     {
@@ -443,10 +356,7 @@
         { "text": "Direkter Zugriff", "isCorrect": false }
       ],
       "difficulty": "HARD",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Zugriffsarten" }
-      ],
+      "categories": ["Datenbanken" , "Zugriffsarten" ],
       "explanation": "Indexbasierter Zugriff optimiert Suchvorgänge und ist damit bei großen Datenmengen und vielen Leseoperationen effizienter."
     },
     {
@@ -458,11 +368,7 @@
         { "text": "Gremlin API in Cosmos DB", "isCorrect": false }
       ],
       "difficulty": "MEDIUM",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Cloud-Datenbanken" },
-        { "name": "Azure" }
-      ],
+      "categories": ["Datenbanken" , "Cloud-Datenbanken" , "Azure" ],
       "explanation": "Azure SQL Database ist die Azure-Lösung, die SQL-Syntax unterstützt."
     },
     {
@@ -474,11 +380,7 @@
         { "text": "Vereinfachte SQL-Abfragen", "isCorrect": true }
       ],
       "difficulty": "HARD",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "SQL" },
-        { "name": "Leistungsoptimierung" }
-      ],
+      "categories": ["Datenbanken" , "SQL" , "Leistungsoptimierung" ],
       "explanation": "Der kombinierte Einsatz dieser Konstrukte kann komplexe Abfragen vereinfachen und die Leistung verbessern – automatische Aktualisierungen erfolgen jedoch nicht."
     },
     {
@@ -490,10 +392,7 @@
         { "text": "NoSQL-Datenbanken sind ausschließlich für strukturierte Daten optimiert.", "isCorrect": false }
       ],
       "difficulty": "HARD",
-      "categories": [
-        { "name": "Datenbanken" },
-        { "name": "Vergleich" }
-      ],
+      "categories": ["Datenbanken" , "Vergleich" ],
       "explanation": "Relationale Systeme garantieren durch ACID-Transaktionen starke Konsistenz, wohingegen NoSQL-Lösungen oft flexible Schemata und horizontale Skalierbarkeit bieten."
     }
   ]

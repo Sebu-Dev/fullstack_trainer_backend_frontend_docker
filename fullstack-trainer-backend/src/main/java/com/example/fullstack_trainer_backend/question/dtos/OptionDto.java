@@ -1,15 +1,12 @@
 package com.example.fullstack_trainer_backend.question.dtos;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-@ToString
-@Setter
-@Getter
+@Data
+@AllArgsConstructor
 public class OptionDto {
     private String text;
     private boolean isCorrect;
-    
 
 }

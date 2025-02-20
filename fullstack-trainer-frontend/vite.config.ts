@@ -11,4 +11,8 @@ export default defineConfig({
     setupFiles: ["src/__tests__/setup.ts"],
   },
   base: "/fullstack-trainer/",
+  build: {
+    minify: false,
+    sourcemap: "inline"
+  }
 });

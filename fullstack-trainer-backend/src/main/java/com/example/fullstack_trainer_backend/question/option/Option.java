@@ -17,7 +17,6 @@ import lombok.Setter;
 @Entity
 @Table(name = "options")
 public class Option {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,7 +27,7 @@ public class Option {
 
     private String text;
     private boolean isCorrect;
-    
+
     // Getter & Setter
     // ...
 }

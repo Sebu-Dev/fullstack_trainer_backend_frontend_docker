@@ -1,12 +1,12 @@
 import axios from "axios";
 import { FaFile } from "react-icons/fa";
 import { IconButton } from "sebu-dev-react-lib";
-import useQuizStore from "../store/QuizStore";
+import questionData from "../Question/data/questionData";
 
 const QuestionSyncButton = () => {
-  const questionList = useQuizStore((state) => state.questionList);
+  const questionList = questionData;
 
-  const mapDifficultyToEnum = (difficulty: string | undefined): string | null => {
+  const mapDifficultyToEnum = (difficulty: string | undefined): string => {
     switch (difficulty?.toLowerCase()) {
       case "easy":
         return "EASY";
@@ -15,47 +15,60 @@ const QuestionSyncButton = () => {
       case "hard":
         return "HARD";
       default:
-        return null;
+        return "EASY"; // Standardwert
     }
   };
 
-
   const scanDuplicates = () => {
     const textMap = new Map();
-
     questionList.forEach((question) => {
-        const text = question.text;
-        textMap.set(text, (textMap.get(text) || 0) + 1);
+      const text = question.text;
+      textMap.set(text, (textMap.get(text) || 0) + 1);
     });
 
     textMap.forEach((count, text) => {
-        if (count > 1) {
-            console.log(`Doppelter Eintrag: "${text}" (${count} Mal)`);
-        }
+      if (count > 1) {
+        console.log(`Doppelter Eintrag: "${text}" (${count} Mal)`);
+      }
     });
-};
+  };
 
   const handleSync = async () => {
     scanDuplicates();
     if (questionList.length === 0) {
       console.warn("Keine Fragen zum Synchronisieren.");
+      alert("Keine Fragen zum Synchronisieren.");
       return;
     }
 
-    const preparedQuestions = questionList.map(({ ...question }) => ({
-      ...question,
-      id:1,
-      difficulty: mapDifficultyToEnum(question.difficulty) ?? null,
-      explanation: question.explanation ?? null,
-      imageUrl: question.imageUrl ?? null,
-      maxPoints: question.maxPoints ?? null,
+    // Keine festgelegte ID, da sie vom Backend generiert wird
+    const preparedQuestions = questionList.map(({ id, ...question }) => ({
+      text: question.text,
+      difficulty: mapDifficultyToEnum(question.difficulty),
+      categories: question.categories,
+      options: question.options,
+      explanation: question.explanation || null,
+      imageUrl: question.imageUrl || null,
+      maxPoints: question.maxPoints || null,
     }));
 
     try {
-      await axios.post("http://localhost:8080/questions/bulk", preparedQuestions);
-      console.log("Fragen erfolgreich in die Datenbank geladen!");
+      const response = await axios.post("http://localhost:8080/questions/bulk", preparedQuestions);
+      const result = response.data;
+
+      if (result.validationErrors && result.validationErrors.length > 0) {
+        console.log("Einige Fragen konnten nicht gespeichert werden:");
+        result.validationErrors.forEach((error: any) => {
+          console.log(`Frage: "${error.questionText}", Fehler: ${error.errors.join(", ")}`, error.questionDto);
+        });
+        alert(`Fragen teilweise gespeichert. ${result.validationErrors.length} Fehler. Details in der Konsole.`);
+      } else {
+        console.log("Alle Fragen erfolgreich gespeichert:", result.saveResult.message);
+        alert("Alle Fragen erfolgreich in die Datenbank geladen!");
+      }
     } catch (error) {
       console.error("Fehler beim Senden der Fragen:", error);
+      alert("Fehler beim Synchronisieren der Fragen. Überprüfen Sie die Konsole.");
     }
   };
 

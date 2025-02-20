@@ -1,7 +1,8 @@
 package com.example.fullstack_trainer_backend.question;
 
-import org.springframework.http.HttpStatus;
 import java.util.List;
+
+import org.springframework.http.HttpStatus;
 
 public class SaveResult {
     private List<Question> savedQuestions;
