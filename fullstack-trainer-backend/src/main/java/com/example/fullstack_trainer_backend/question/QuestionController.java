@@ -46,6 +46,7 @@ public class QuestionController {
     @GetMapping
     public ResponseEntity<List<QuestionDto>> getAllQuestions() {
         List<QuestionDto> questions = questionService.getAllQuestions();
+        questions.get(0).getOptions().get(0).isCorrect()
         return ResponseEntity.ok(questions);
     }
 

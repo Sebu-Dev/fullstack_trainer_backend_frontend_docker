@@ -1,6 +1,6 @@
 export interface Option {
   text: string;
-  isCorrect: boolean;
+  correct: boolean;
 }
 
 export interface UserAnswer {

@@ -8,17 +8,17 @@ export const dockerLayerQuestions: Question[] = [
     options: [
       {
         text: "Ein Layer ist eine Schicht, die zu einem Docker-Image beiträgt",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "Ein Layer repräsentiert eine Änderung im Dateisystem",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "Ein Layer ist gleichbedeutend mit einem Container",
-        isCorrect: false,
+        correct: false,
       },
-      { text: "Ein Layer speichert Metadaten eines Images", isCorrect: false },
+      { text: "Ein Layer speichert Metadaten eines Images", correct: false },
     ],
     difficulty: "medium",
     categories: ["Docker", "Docker Layer"],
@@ -30,15 +30,15 @@ export const dockerLayerQuestions: Question[] = [
     id: uuidv4(),
     text: "Warum wird empfohlen, häufig wechselnde Dateien in späteren Dockerfile-Anweisungen zu bearbeiten?",
     options: [
-      { text: "Um den Cache optimal zu nutzen", isCorrect: true },
+      { text: "Um den Cache optimal zu nutzen", correct: true },
       {
         text: "Weil spätere Layers weniger Speicherplatz beanspruchen",
-        isCorrect: false,
+        correct: false,
       },
-      { text: "Um Layers wiederverwendbar zu machen", isCorrect: true },
+      { text: "Um Layers wiederverwendbar zu machen", correct: true },
       {
         text: "Weil Layers mit späteren Änderungen zusammengeführt werden",
-        isCorrect: false,
+        correct: false,
       },
     ],
     difficulty: "hard",
@@ -51,12 +51,12 @@ export const dockerLayerQuestions: Question[] = [
     id: uuidv4(),
     text: "Wie beeinflusst die Reihenfolge der Befehle in einem Dockerfile die Anzahl der Layers und die Build-Performance?",
     options: [
-      { text: "Jeder Befehl erzeugt einen neuen Layer", isCorrect: true },
-      { text: "Die Reihenfolge kann den Cache beeinflussen", isCorrect: true },
-      { text: "Befehle werden automatisch optimiert", isCorrect: false },
+      { text: "Jeder Befehl erzeugt einen neuen Layer", correct: true },
+      { text: "Die Reihenfolge kann den Cache beeinflussen", correct: true },
+      { text: "Befehle werden automatisch optimiert", correct: false },
       {
         text: "Das Zusammenführen von Layers reduziert die Größe",
-        isCorrect: false,
+        correct: false,
       },
     ],
     difficulty: "hard",
@@ -71,13 +71,13 @@ export const dockerLayerQuestions: Question[] = [
     options: [
       {
         text: "Es beschleunigt Builds durch Wiederverwendung unveränderter Layers",
-        isCorrect: true,
+        correct: true,
       },
-      { text: "Es reduziert die Image-Größe", isCorrect: false },
-      { text: "Es erfordert manuelle Konfiguration", isCorrect: false },
+      { text: "Es reduziert die Image-Größe", correct: false },
+      { text: "Es erfordert manuelle Konfiguration", correct: false },
       {
         text: "Es sorgt dafür, dass nur geänderte Layers neu gebaut werden",
-        isCorrect: true,
+        correct: true,
       },
     ],
     difficulty: "medium",
@@ -92,14 +92,14 @@ export const dockerLayerQuestions: Question[] = [
     options: [
       {
         text: "Durch das Entfernen temporärer Dateien im selben RUN-Befehl",
-        isCorrect: true,
+        correct: true,
       },
-      { text: "Durch Verwendung von Multi-Stage-Builds", isCorrect: true },
+      { text: "Durch Verwendung von Multi-Stage-Builds", correct: true },
       {
         text: "Durch Splitten eines RUN-Befehls in mehrere Schritte",
-        isCorrect: false,
+        correct: false,
       },
-      { text: "Durch Nutzung von großen Layer-Caches", isCorrect: false },
+      { text: "Durch Nutzung von großen Layer-Caches", correct: false },
     ],
     difficulty: "hard",
     categories: ["Docker", "Docker Layer"],
@@ -113,14 +113,14 @@ export const dockerLayerQuestions: Question[] = [
     options: [
       {
         text: "Veraltete Layers können Sicherheitslücken enthalten",
-        isCorrect: true,
+        correct: true,
       },
-      { text: "Layers werden automatisch aktualisiert", isCorrect: false },
+      { text: "Layers werden automatisch aktualisiert", correct: false },
       {
         text: "Layers können nur mit vollständigen Images aktualisiert werden",
-        isCorrect: true,
+        correct: true,
       },
-      { text: "Nur Base-Images beeinflussen die Sicherheit", isCorrect: false },
+      { text: "Nur Base-Images beeinflussen die Sicherheit", correct: false },
     ],
     difficulty: "hard",
     categories: ["Docker", "Docker Layer"],
@@ -132,16 +132,16 @@ export const dockerLayerQuestions: Question[] = [
     id: uuidv4(),
     text: "Erkläre, warum das Aufteilen eines Befehls in mehrere RUN-Anweisungen die Layer-Anzahl erhöht, aber Vorteile beim Debugging bietet.",
     options: [
-      { text: "Jede RUN-Anweisung erzeugt einen neuen Layer", isCorrect: true },
+      { text: "Jede RUN-Anweisung erzeugt einen neuen Layer", correct: true },
       {
         text: "Das Debuggen wird durch kleinere Schritte erleichtert",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "Die Performance beim Build-Prozess verbessert sich",
-        isCorrect: false,
+        correct: false,
       },
-      { text: "Die Layer-Größe wird automatisch optimiert", isCorrect: false },
+      { text: "Die Layer-Größe wird automatisch optimiert", correct: false },
     ],
     difficulty: "medium",
     categories: ["Docker", "Docker Layer"],
@@ -155,17 +155,17 @@ export const dockerLayerQuestions: Question[] = [
     options: [
       {
         text: "Sie bilden die Grundlage für alle weiteren Layers",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "Änderungen im Base-Image betreffen alle abhängigen Layers",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "Base-Images beeinflussen nur die Größe, nicht die Layers",
-        isCorrect: false,
+        correct: false,
       },
-      { text: "Base-Images werden beim Build ignoriert", isCorrect: false },
+      { text: "Base-Images werden beim Build ignoriert", correct: false },
     ],
     difficulty: "medium",
     categories: ["Docker", "Docker Layer"],
@@ -177,13 +177,13 @@ export const dockerLayerQuestions: Question[] = [
     id: uuidv4(),
     text: "Wie kann der Befehl `docker history` dir helfen, Layers zu analysieren und Optimierungen im Dockerfile vorzunehmen?",
     options: [
-      { text: "Er zeigt die Layer-Größe an", isCorrect: true },
+      { text: "Er zeigt die Layer-Größe an", correct: true },
       {
         text: "Er zeigt, welche Befehle zu welchen Layers gehören",
-        isCorrect: true,
+        correct: true,
       },
-      { text: "Er entfernt unnötige Layers automatisch", isCorrect: false },
-      { text: "Er optimiert den Build-Prozess", isCorrect: false },
+      { text: "Er entfernt unnötige Layers automatisch", correct: false },
+      { text: "Er optimiert den Build-Prozess", correct: false },
     ],
     difficulty: "medium",
     categories: ["Docker", "Docker Layer"],
@@ -197,14 +197,14 @@ export const dockerLayerQuestions: Question[] = [
     options: [
       {
         text: "Ein 'flattened' Image besteht aus einem einzigen Layer",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "Es ist einfacher zu verteilen, aber schwerer zu debuggen",
-        isCorrect: true,
+        correct: true,
       },
-      { text: "Reguläre Images sind immer schneller", isCorrect: false },
-      { text: "Flattening entfernt Caching-Vorteile", isCorrect: true },
+      { text: "Reguläre Images sind immer schneller", correct: false },
+      { text: "Flattening entfernt Caching-Vorteile", correct: true },
     ],
     difficulty: "hard",
     categories: ["Docker", "Docker Layer"],

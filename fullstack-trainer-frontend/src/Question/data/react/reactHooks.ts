@@ -8,20 +8,20 @@ export const reactHookQuestions: Question[] = [
     options: [
       {
         text: "Der `useEffect` Hook wird für die Seiteneffekte und API-Aufrufe verwendet",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "`useRef` kann verwendet werden, um DOM-Elemente direkt zu referenzieren",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "`useState` ersetzt den globalen Zustand in einer Anwendung",
-        isCorrect: false,
+        correct: false,
       },
 
       {
         text: "`useMemo` wird verwendet, um Re-Rendering zu vermeiden, indem es berechnete Werte speichert",
-        isCorrect: true,
+        correct: true,
       },
     ],
     difficulty: "medium",
@@ -35,19 +35,19 @@ export const reactHookQuestions: Question[] = [
     options: [
       {
         text: "`useContext` wird verwendet, um globale Zustände in einer React-Anwendung zu verwalten",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "`useContext` ersetzt die Notwendigkeit, Props zu verwenden",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "`useContext` kann nicht in Funktionskomponenten verwendet werden",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "`useContext` ist nur für die Kommunikation zwischen Eltern- und Kindkomponenten geeignet",
-        isCorrect: false,
+        correct: false,
       },
     ],
     difficulty: "medium",
@@ -61,19 +61,19 @@ export const reactHookQuestions: Question[] = [
     options: [
       {
         text: "`useReducer` sollte verwendet werden, wenn der Zustand eine komplexe Logik hat oder von vielen Komponenten gleichzeitig bearbeitet wird",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "`useReducer` ist eine vereinfachte Alternative zu `useState` und wird immer dann empfohlen, wenn der Zustand komplex ist",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "`useReducer` wird verwendet, um eine Komponente mit einem externen Store zu verbinden",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "`useReducer` ist nur für die Verwaltung von Listen zuständig, nicht für komplexe Objekte",
-        isCorrect: false,
+        correct: false,
       },
     ],
     difficulty: "hard",
@@ -87,19 +87,19 @@ export const reactHookQuestions: Question[] = [
     options: [
       {
         text: "`useEffect` wird nach dem ersten Rendern der Komponente ausgeführt und bei jeder State-Änderung, wenn keine Abhängigkeiten angegeben sind",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "`useEffect` wird nur beim ersten Rendern ausgeführt und danach nicht mehr",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "`useEffect` kann nur für API-Aufrufe und nicht für andere Seiteneffekte verwendet werden",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "`useEffect` wird nicht benötigt, wenn `useState` verwendet wird",
-        isCorrect: false,
+        correct: false,
       },
     ],
     difficulty: "medium",
@@ -113,19 +113,19 @@ export const reactHookQuestions: Question[] = [
     options: [
       {
         text: "Die Funktion wird nur ausgeführt, wenn eine der angegebenen Abhängigkeiten sich geändert hat",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "Die Funktion wird bei jedem Rendern der Komponente ausgeführt, unabhängig von den Abhängigkeiten",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "Die Funktion wird nur einmal beim ersten Rendern ausgeführt, unabhängig von den Abhängigkeiten",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "Die Funktion wird nie ausgeführt, wenn eine Abhängigkeitsliste angegeben ist",
-        isCorrect: false,
+        correct: false,
       },
     ],
     difficulty: "medium",
@@ -139,19 +139,19 @@ export const reactHookQuestions: Question[] = [
     options: [
       {
         text: "Es wird verwendet, um die DOM-Manipulation zu verzögern, bis das Layout der Seite vollständig gerendert ist",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "Es wird verwendet, um API-Aufrufe zu tätigen",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "Es hat denselben Effekt wie `useEffect`, aber es wird synchron ausgeführt",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "Es wird nur in der Entwicklungsumgebung ausgeführt",
-        isCorrect: false,
+        correct: false,
       },
     ],
     difficulty: "hard",
@@ -165,19 +165,19 @@ export const reactHookQuestions: Question[] = [
     options: [
       {
         text: "`useEffect` wird nach dem Rendern ausgeführt, während `useLayoutEffect` vor dem Rendern des DOMs ausgeführt wird",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "`useEffect` ist nur für API-Aufrufe gedacht, `useLayoutEffect` für DOM-Manipulationen",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "`useEffect` ist synchron, `useLayoutEffect` asynchron",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "`useEffect` wird nur in Funktionskomponenten verwendet, `useLayoutEffect` nur in Klassenkomponenten",
-        isCorrect: false,
+        correct: false,
       },
     ],
     difficulty: "hard",
@@ -191,19 +191,19 @@ export const reactHookQuestions: Question[] = [
     options: [
       {
         text: "`useContext` dient dazu, Daten an tief verschachtelte Komponenten zu übergeben, während `useReducer` komplexe Zustandsänderungen innerhalb einer Komponente behandelt",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "`useReducer` ersetzt `useState` immer, wenn der Zustand komplexer wird",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "`useContext` kann nur in Funktionskomponenten und nicht in Klassenkomponenten verwendet werden",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "`useReducer` wird hauptsächlich für die Verwaltung von Formularen verwendet",
-        isCorrect: false,
+        correct: false,
       },
     ],
     difficulty: "medium",
@@ -215,10 +215,10 @@ export const reactHookQuestions: Question[] = [
     id: uuidv4(),
     text: "Was bewirkt useMemo in React?",
     options: [
-      { text: "Memoisiert teure Berechnungen", isCorrect: true },
-      { text: "Optimiert Performance bei Renderings", isCorrect: true },
-      { text: "Verhindert Neurendering der Komponente", isCorrect: false },
-      { text: "Speichert Funktionen zwischen", isCorrect: false },
+      { text: "Memoisiert teure Berechnungen", correct: true },
+      { text: "Optimiert Performance bei Renderings", correct: true },
+      { text: "Verhindert Neurendering der Komponente", correct: false },
+      { text: "Speichert Funktionen zwischen", correct: false },
     ],
     difficulty: "hard",
     categories: ["React", "React Hooks"],
@@ -232,17 +232,17 @@ export const reactHookQuestions: Question[] = [
     options: [
       {
         text: "Für teure Berechnungen, die Abhängigkeiten besitzen",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "Wenn eine Variable bei jedem Render neu erstellt wird",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "Für Variablen, die keine Abhängigkeiten haben",
-        isCorrect: false,
+        correct: false,
       },
-      { text: "Für jede State-Änderung", isCorrect: false },
+      { text: "Für jede State-Änderung", correct: false },
     ],
     difficulty: "medium",
     categories: ["React", "React Hooks"],
@@ -253,10 +253,10 @@ export const reactHookQuestions: Question[] = [
     id: uuidv4(),
     text: "Wofür wird useCallback primär verwendet?",
     options: [
-      { text: "Um Werte zu memoisieren", isCorrect: false },
-      { text: "Um Funktionen zu memoisieren", isCorrect: true },
-      { text: "Um Arrays effizient zu filtern", isCorrect: false },
-      { text: "Um DOM-Elemente zu referenzieren", isCorrect: false },
+      { text: "Um Werte zu memoisieren", correct: false },
+      { text: "Um Funktionen zu memoisieren", correct: true },
+      { text: "Um Arrays effizient zu filtern", correct: false },
+      { text: "Um DOM-Elemente zu referenzieren", correct: false },
     ],
     difficulty: "medium",
     categories: ["React", "React Hooks"],
@@ -267,13 +267,13 @@ export const reactHookQuestions: Question[] = [
     id: uuidv4(),
     text: "Was sind mögliche Probleme bei der Verwendung von `useEffect`?",
     options: [
-      { text: "Unbeabsichtigte Endlosschleifen", isCorrect: true },
+      { text: "Unbeabsichtigte Endlosschleifen", correct: true },
       {
         text: "Speicherlecks bei unbereinigten Subscriptions",
-        isCorrect: true,
+        correct: true,
       },
-      { text: "Fehlende Rückgabewerte", isCorrect: false },
-      { text: "Unzureichende Hook-Regeln", isCorrect: false },
+      { text: "Fehlende Rückgabewerte", correct: false },
+      { text: "Unzureichende Hook-Regeln", correct: false },
     ],
     difficulty: "hard",
     categories: ["React", "React Hooks"],
@@ -286,13 +286,13 @@ export const reactHookQuestions: Question[] = [
     options: [
       {
         text: "Bei komplexen State-Logiken mit mehreren Zuständen",
-        isCorrect: true,
+        correct: true,
       },
-      { text: "Wenn man nur einen Boolean togglen möchte", isCorrect: false },
-      { text: "Für einfache State-Updates", isCorrect: false },
+      { text: "Wenn man nur einen Boolean togglen möchte", correct: false },
+      { text: "Für einfache State-Updates", correct: false },
       {
         text: "Wenn man Zustand zwischen Komponenten teilen möchte",
-        isCorrect: false,
+        correct: false,
       },
     ],
     difficulty: "hard",
@@ -306,16 +306,16 @@ export const reactHookQuestions: Question[] = [
     options: [
       {
         text: "const [state, setState] = useState(initialState);",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "const [state, setState] = useState(initialState, callback);",
-        isCorrect: false,
+        correct: false,
       },
-      { text: "const setState = useState(initialState);", isCorrect: false },
+      { text: "const setState = useState(initialState);", correct: false },
       {
         text: "const [state, setState] = useReducer(initialState);",
-        isCorrect: false,
+        correct: false,
       },
     ],
     difficulty: "easy",
@@ -327,18 +327,18 @@ export const reactHookQuestions: Question[] = [
     id: uuidv4(),
     text: "Was bewirkt ein leeres Abhängigkeitsarray ([]) im useEffect-Hook?",
     options: [
-      { text: "Der Effect wird bei jedem Render aufgerufen", isCorrect: false },
+      { text: "Der Effect wird bei jedem Render aufgerufen", correct: false },
       {
         text: "Der Effect wird nur beim ersten Render aufgerufen",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "Der Effect wird bei Änderungen des DOM ausgeführt",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "Der Effect wird nach jedem Benutzer-Event aufgerufen",
-        isCorrect: false,
+        correct: false,
       },
     ],
     difficulty: "easy",
@@ -350,10 +350,10 @@ export const reactHookQuestions: Question[] = [
     id: uuidv4(),
     text: "Wie nutzt man useState korrekt mit mehreren unabhängigen Werten?",
     options: [
-      { text: "Separate useState-Hooks verwenden", isCorrect: true },
-      { text: "Werte in einem Objekt bündeln", isCorrect: false },
-      { text: "Ein useState für alle Werte verwenden", isCorrect: false },
-      { text: "State direkt mutieren", isCorrect: false },
+      { text: "Separate useState-Hooks verwenden", correct: true },
+      { text: "Werte in einem Objekt bündeln", correct: false },
+      { text: "Ein useState für alle Werte verwenden", correct: false },
+      { text: "State direkt mutieren", correct: false },
     ],
     difficulty: "medium",
     categories: ["React", "React Hooks"],
@@ -366,16 +366,16 @@ export const reactHookQuestions: Question[] = [
     options: [
       {
         text: "Um selektive Methoden oder Eigenschaften an ein Parent zu exposen",
-        isCorrect: true,
+        correct: true,
       },
-      { text: "Um ein Parent-Element direkt zu ändern", isCorrect: false },
+      { text: "Um ein Parent-Element direkt zu ändern", correct: false },
       {
         text: "Um eine gesamte DOM-Node an das Parent zu übergeben",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "Um Props von Child-Komponenten zu überschreiben",
-        isCorrect: false,
+        correct: false,
       },
     ],
     difficulty: "hard",
@@ -389,16 +389,16 @@ export const reactHookQuestions: Question[] = [
     options: [
       {
         text: "Bei komplexen Zustandslogiken mit mehreren Aktionen",
-        isCorrect: true,
+        correct: true,
       },
-      { text: "Bei sehr einfachen Zustandsänderungen", isCorrect: false },
+      { text: "Bei sehr einfachen Zustandsänderungen", correct: false },
       {
         text: "Um den State automatisch zwischen Komponenten zu teilen",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "Um die Performance ohne weitere Optimierungen zu verbessern",
-        isCorrect: false,
+        correct: false,
       },
     ],
     difficulty: "medium",

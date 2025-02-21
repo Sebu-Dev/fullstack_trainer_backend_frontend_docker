@@ -36,7 +36,7 @@ export const QuizCsvConverter = {
         question.maxPoints?.toString() || "",
         ...this.padOptions(question.options).flatMap((option) => [
           escapeCsvField(option.text),
-          option.isCorrect.toString(),
+          option.correct.toString(),
         ]),
       ];
 
@@ -87,7 +87,7 @@ export const QuizCsvConverter = {
   padOptions(options: Option[]): Option[] {
     const paddedOptions = [...options];
     while (paddedOptions.length < MAX_OPTION_COUNT) {
-      paddedOptions.push({ text: "", isCorrect: false });
+      paddedOptions.push({ text: "", correct: false });
     }
     return paddedOptions;
   },
@@ -104,7 +104,7 @@ export const QuizCsvConverter = {
         this.getCsvValue(headers, values, `Option${i}Correct`) === "true";
 
       if (optionText.trim()) {
-        options.push({ text: optionText, isCorrect });
+        options.push({ text: optionText, correct: isCorrect });
       }
     }
 

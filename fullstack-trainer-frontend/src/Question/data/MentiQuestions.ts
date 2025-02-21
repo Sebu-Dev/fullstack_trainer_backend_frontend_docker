@@ -8,19 +8,19 @@ export const mentiQuiz: Question[] = [
     options: [
       {
         text: "React ignoriert die Aktualisierung, da der Zustand nicht geändert wurde und rendert die Komponente nicht neu",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "Die Komponente wird dennoch neu gerendert, um sicherzustellen, dass der Zustand immer aktualisiert wird",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "Der Zustand wird sofort aktualisiert und die neue Komponente wird gerendert",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "Es führt zu einem Fehler, da der Zustand immer einzigartig sein muss",
-        isCorrect: false,
+        correct: false,
       },
     ],
     difficulty: "medium",
@@ -34,19 +34,19 @@ export const mentiQuiz: Question[] = [
     options: [
       {
         text: "`React.Fragment` ermöglicht das Gruppieren von Komponenten ohne zusätzliche DOM-Elemente zu erzeugen",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "`React.Fragment` wird nur für Listen von Komponenten benötigt",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "`React.Fragment` kann nicht mit Schlüssel-Attributen (`key`) verwendet werden",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "`React.Fragment` hat den gleichen Zweck wie ein `div`-Tag, aber ohne Styling",
-        isCorrect: true,
+        correct: true,
       },
     ],
     difficulty: "medium",
@@ -60,19 +60,19 @@ export const mentiQuiz: Question[] = [
     options: [
       {
         text: "Die `componentDidMount`-Methode wird nach dem ersten Rendern einer Klasse ausgeführt",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "Die `componentDidUpdate`-Methode wird nur bei Änderungen des Props ausgeführt",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "Die `componentWillUnmount`-Methode wird aufgerufen, bevor eine Komponente vom DOM entfernt wird",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "Lifecycle-Methoden sind nur in Funktionskomponenten verfügbar",
-        isCorrect: false,
+        correct: false,
       },
     ],
     difficulty: "hard",
@@ -86,19 +86,19 @@ export const mentiQuiz: Question[] = [
     options: [
       {
         text: "`React.memo` optimiert die Performance, indem es die Komponente nur dann neu rendert, wenn sich die Props ändern",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "`React.memo` verhindert das Re-Rendering einer Komponente, wenn der Zustand sich nicht ändert",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "`React.memo` wird verwendet, um die Initialisierung der Komponente zu verhindern",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "`React.memo` ist nur für Klassenkomponenten gedacht",
-        isCorrect: false,
+        correct: false,
       },
     ],
     difficulty: "medium",
@@ -112,19 +112,19 @@ export const mentiQuiz: Question[] = [
     options: [
       {
         text: "Indem man den `value`-Prop des Formularfeldes mit dem Zustand der Komponente bindet",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "Indem man den `checked`-Prop für alle Formularfelder nutzt",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "Indem man das `input`-Feld jedes Mal manuell ändert, wenn der Zustand sich ändert",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "Indem man `useEffect` verwendet, um den Wert des `input`-Feldes zu setzen",
-        isCorrect: false,
+        correct: false,
       },
     ],
     difficulty: "easy",
@@ -138,19 +138,19 @@ export const mentiQuiz: Question[] = [
     options: [
       {
         text: "`useEffect` wird nach dem Rendern ausgeführt, während `useLayoutEffect` vor dem Rendern des DOMs ausgeführt wird",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "`useEffect` ist nur für API-Aufrufe gedacht, `useLayoutEffect` für DOM-Manipulationen",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "`useEffect` ist synchron, `useLayoutEffect` asynchron",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "`useEffect` wird nur in Funktionskomponenten verwendet, `useLayoutEffect` nur in Klassenkomponenten",
-        isCorrect: false,
+        correct: false,
       },
     ],
     difficulty: "hard",
@@ -164,19 +164,19 @@ export const mentiQuiz: Question[] = [
     options: [
       {
         text: "`useContext` dient dazu, Daten an tief verschachtelte Komponenten zu übergeben, während `useReducer` komplexe Zustandsänderungen innerhalb einer Komponente behandelt",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "`useReducer` ersetzt `useState` immer, wenn der Zustand komplexer wird",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "`useContext` kann nur in Funktionskomponenten und nicht in Klassenkomponenten verwendet werden",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "`useReducer` wird hauptsächlich für die Verwaltung von Formularen verwendet",
-        isCorrect: false,
+        correct: false,
       },
     ],
     difficulty: "medium",
@@ -190,19 +190,19 @@ export const mentiQuiz: Question[] = [
     options: [
       {
         text: "Verwende `shouldComponentUpdate` in Klassenkomponenten oder `React.memo` in Funktionskomponenten",
-        isCorrect: true,
+        correct: true,
       },
       {
         text: "Verwende immer den `key`-Prop in allen Komponenten",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "Verwende `useEffect`, um die Komponente zu überwachen und nur bei Bedarf neu zu rendern",
-        isCorrect: false,
+        correct: false,
       },
       {
         text: "Vermeide das Setzen von Zustand innerhalb von Komponenten",
-        isCorrect: false,
+        correct: false,
       },
     ],
     difficulty: "medium",
