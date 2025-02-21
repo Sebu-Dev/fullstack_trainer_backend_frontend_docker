@@ -1,6 +1,24 @@
 version: "3.8"
 
 services:
+  # Traefik Reverse Proxy
+  traefik:
+    image: traefik:latest
+    container_name: traefik
+    restart: unless-stopped
+    ports:
+      - "80:80"      # HTTP
+      - "443:443"    # HTTPS
+      - "8081:8080"  # Traefik Dashboard (optional, anderer Port als Backend)
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock  # Docker-Integration
+      - ./traefik.yml:/etc/traefik/traefik.yml    # Traefik-Konfig
+      - ./acme.json:/acme.json                    # Zertifikatsspeicher
+    command:
+      - "--api.insecure=true"  # Dashboard ohne Auth (optional)
+    networks:
+      - app-net
+
   # Datenbank
   db:
     image: postgres:16.2
@@ -14,7 +32,7 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
     ports:
-      - 5432:5432
+      - "5432:5432"
     networks:
       - app-net
 
@@ -48,14 +66,22 @@ services:
       SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
       SPRING_JPA_HIBERNATE_DDL_AUTO: ${SPRING_JPA_HIBERNATE_DDL_AUTO}
       SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}
-    ports:
-      - "8080:8080"
+    expose:
+      - "8080"  # Port nur intern freigeben, Traefik übernimmt externen Zugriff
     networks:
       - app-net
     depends_on:
       - db
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.backend.rule=Host(`217.154.77.26`)"
+      - "traefik.http.routers.backend.entrypoints=websecure"
+      - "traefik.http.routers.backend.service=backend-service"
+      - "traefik.http.services.backend-service.loadbalancer.server.port=8080"
+      - "traefik.http.routers.backend.tls=true"
+      - "traefik.http.routers.backend.tls.certresolver=letsencrypt"
 
-  # Frontend
+  # Frontend (optional für lokale Entwicklung, wird nicht deployed)
   frontend:
     container_name: Fullstack_trainer_frontend
     build:
@@ -68,7 +94,6 @@ services:
       - app-net
     depends_on:
       - backend
-
 
 networks:
   app-net:
