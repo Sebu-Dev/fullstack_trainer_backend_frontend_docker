@@ -47,7 +47,7 @@ PGADMIN_DEFAULT_PASSWORD=$(prompt_with_default "PGADMIN_DEFAULT_PASSWORD" "admin
 
 # Frontend
 VITE_FEATURE_DEV=$(prompt_with_default "VITE_FEATURE_DEV" "true" "Vite Feature Dev (true/false)")
-VITE_API_BASE_URL=$(prompt_with_default "VITE_API_BASE_URL" "http://localhost:8080" "Vite API Base URL")
+VITE_API_BASE_URL=$(prompt_with_default "VITE_API_BASE_URL" "http://217.154.77.26:8080" "Vite API Base URL")
 VITE_API_USERNAME=$(prompt_with_default "VITE_API_USERNAME" "meinBenutzername" "Vite API Benutzername")
 VITE_API_PASSWORD=$(prompt_with_default "VITE_API_PASSWORD" "meinPasswort" "Vite API Passwort")
 
