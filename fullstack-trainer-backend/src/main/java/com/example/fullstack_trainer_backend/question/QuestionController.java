@@ -27,7 +27,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 @RequestMapping("/questions")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = { "http://localhost:3000", "http://217.154.77.26:8000" })
 public class QuestionController {
 
     private static final Logger logger = LoggerFactory.getLogger(QuestionController.class);
