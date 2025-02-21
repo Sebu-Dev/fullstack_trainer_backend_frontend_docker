@@ -3,6 +3,7 @@ import { FaFile } from "react-icons/fa";
 import { IconButton } from "sebu-dev-react-lib";
 import questionData from "../Question/data/questionData";
 import withFeatureFlag from "../hocs/withFeatureFlag";
+import { API_BASE_URL } from "../config/apiVariables";
 
 const QuestionSyncButton = () => {
   const questionList = questionData;
@@ -54,7 +55,7 @@ const QuestionSyncButton = () => {
     }));
 
     try {
-      const response = await axios.post("http://localhost:8080/questions/bulk", preparedQuestions);
+      const response = await axios.post(`${API_BASE_URL}/questions/bulk`, preparedQuestions);
       const result = response.data;
 
       if (result.validationErrors && result.validationErrors.length > 0) {

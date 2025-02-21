@@ -1,6 +1,7 @@
 import {  useState } from "react";
 import axios from "axios";
 import withFeatureFlag from "../hocs/withFeatureFlag";
+import { API_BASE_URL } from "../config/apiVariables";
 
 const QuestionUpload = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -26,7 +27,7 @@ const QuestionUpload = () => {
     formData.append("file", file);
 
     try {
-      const response = await axios.post("http://localhost:8080/questions/upload", formData, {
+      const response = await axios.post(`${API_BASE_URL}/questions/upload`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       const result = response.data;

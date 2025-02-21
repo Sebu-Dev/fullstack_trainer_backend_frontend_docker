@@ -61,6 +61,9 @@ VITE_API_BASE_URL=$(prompt_with_default "VITE_API_BASE_URL" "http://217.154.77.2
 VITE_API_USERNAME=$(prompt_with_default "VITE_API_USERNAME" "meinBenutzername" "Vite API Benutzername")
 VITE_API_PASSWORD=$(prompt_with_default "VITE_API_PASSWORD" "meinPasswort" "Vite API Passwort")
 
+NEW_IP="http://217.154.77.26:8080"
+sed -i "s|VITE_API_BASE_URL=.*|VITE_API_BASE_URL=$NEW_IP|" ../fullstack-trainer-frontend/.env.development
+
 # Exportieren der Variablen in die Shell
 export POSTGRES_DB POSTGRES_USER POSTGRES_PASSWORD POSTGRES_HOST POSTGRES_PORT
 export SPRING_DATASOURCE_URL SPRING_DATASOURCE_USERNAME SPRING_DATASOURCE_PASSWORD SPRING_JPA_HIBERNATE_DDL_AUTO SPRING_PROFILES_ACTIVE
