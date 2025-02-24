@@ -1,3 +1,4 @@
+package com.example.fullstack_trainer_backend.configurations;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
