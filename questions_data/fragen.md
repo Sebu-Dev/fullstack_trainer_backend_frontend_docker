@@ -83,3 +83,14 @@ was kann man mit entra id machen?
 * usermanagement
 * app könne registriert werden
 * authentifizierung 
+
+
+Micro services 
+
+was sind die vor von monoliten
+
+was sind nachteile monoliten
+
+was sind vor teile eines microservices
+
+was sind nachteile microservice

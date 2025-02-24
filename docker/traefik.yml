@@ -1,0 +1,35 @@
+api:
+  dashboard: true
+
+entryPoints:
+  web:
+    address: ":80"
+  websecure:
+    address: ":443"
+
+providers:
+  docker:
+    exposedByDefault: false
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: "fsebulke@web.de"  # Deine E-Mail
+      storage: "/acme.json"
+      httpChallenge:
+        entryPoint: "web"
+
+http:
+  middlewares:
+    https-redirect:
+      redirectScheme:
+        scheme: "https"
+        permanent: true
+  routers:
+    redirect-to-https:
+      rule: "Host(`sebu-dev.de`)"
+      entryPoints:
+        - "web"
+      middlewares:
+        - "https-redirect"
+      service: "noop"
