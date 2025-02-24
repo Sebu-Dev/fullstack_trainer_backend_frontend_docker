@@ -25,6 +25,23 @@ http:
       redirectScheme:
         scheme: "https"
         permanent: true
+    cors-headers:
+      headers:
+        accessControlAllowOriginList:
+          - "https://sebu-dev.github.io"
+          - "http://localhost:3000"
+          - "https://sebu-dev.de"
+          - "http://217.154.77.26:8080"
+        accessControlAllowMethods:
+          - "GET"
+          - "POST"
+          - "PUT"
+          - "DELETE"
+        accessControlAllowHeaders: "*"
+    strip-quiz-prefix:  # Neue Middleware
+      stripPrefix:
+        prefixes:
+          - "/quiz"
   routers:
     redirect-to-https:
       rule: "Host(`sebu-dev.de`)"
