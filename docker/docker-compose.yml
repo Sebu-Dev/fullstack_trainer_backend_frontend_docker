@@ -68,12 +68,13 @@ services:
       - db
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.backend.rule=Host(`sebu-dev.de`) && PathPrefix(`/quiz`)"
+      - "traefik.http.routers.backend.rule=Host(`sebu-dev.de`) && Path(`/quiz/questions`)"
       - "traefik.http.routers.backend.entrypoints=websecure"
       - "traefik.http.routers.backend.service=backend-service"
       - "traefik.http.services.backend-service.loadbalancer.server.port=8080"
       - "traefik.http.routers.backend.tls=true"
       - "traefik.http.routers.backend.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.backend.middlewares=cors-headers,strip-quiz-prefix"
 
   frontend:
     container_name: Fullstack_trainer_frontend
