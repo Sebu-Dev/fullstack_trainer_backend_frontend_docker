@@ -26,9 +26,9 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
-@RequestMapping("/questions")
+@RequestMapping("/quiz/questions")
 @CrossOrigin(origins = {
-        "https://sebu-dev.github.io",
+        "https://sebu-dev.github.io/",
         "http://localhost:3000",
         "https://sebu-dev.de",
         "http://217.154.77.26:8080"

@@ -15,7 +15,7 @@ public class WebConfig implements WebMvcConfigurer {
         logger.info("CORS-Konfiguration wird geladen");
         registry.addMapping("/**")
                 .allowedOrigins(
-                        "https://sebu-dev.github.io",
+                        "https://sebu-dev.github.io/",
                         "http://localhost:3000",
                         "https://sebu-dev.de",
                         "http://217.154.77.26:8080")

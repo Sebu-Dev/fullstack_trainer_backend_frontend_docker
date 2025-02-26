@@ -5,6 +5,7 @@ services:
     image: traefik:latest
     container_name: traefik
     restart: unless-stopped
+
     ports:
       - "80:80"
       - "443:443"
@@ -60,21 +61,23 @@ services:
       SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
       SPRING_JPA_HIBERNATE_DDL_AUTO: ${SPRING_JPA_HIBERNATE_DDL_AUTO}
       SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}
-    expose:
-      - "8080"
+    ports:
+      - "8080:8080"
     networks:
       - app-net
     depends_on:
       - db
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.backend.rule=Host(`sebu-dev.de`) && Path(`/quiz/questions`)"
+      - "traefik.http.routers.backend.rule=Host(`sebu-dev.de`)"
       - "traefik.http.routers.backend.entrypoints=websecure"
       - "traefik.http.routers.backend.service=backend-service"
       - "traefik.http.services.backend-service.loadbalancer.server.port=8080"
       - "traefik.http.routers.backend.tls=true"
       - "traefik.http.routers.backend.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.backend.middlewares=cors-headers@file,strip-quiz-prefix@file"
+      - "traefik.http.middlewares.cors-headers.headers.accessControlAllowOriginList=https://sebu-dev.github.io,http://localhost:3000"
+      - "traefik.http.middlewares.cors-headers.headers.accessControlAllowMethods=GET,POST,PUT,DELETE"
+      - "traefik.http.middlewares.cors-headers.headers.accessControlAllowHeaders=*"
 
   frontend:
     container_name: Fullstack_trainer_frontend

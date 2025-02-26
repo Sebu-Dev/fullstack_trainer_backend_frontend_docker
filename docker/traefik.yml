@@ -14,11 +14,12 @@ providers:
 certificatesResolvers:
   letsencrypt:
     acme:
-      email: "fsebulke@web.de"  # Deine E-Mail
+      email: "fsebulke@web.de"
       storage: "/acme.json"
       httpChallenge:
         entryPoint: "web"
-
+log:
+  level: DEBUG
 http:
   middlewares:
     https-redirect:
@@ -28,7 +29,7 @@ http:
     cors-headers:
       headers:
         accessControlAllowOriginList:
-          - "https://sebu-dev.github.io"
+          - "https://sebu-dev.github.io/"
           - "http://localhost:3000"
           - "https://sebu-dev.de"
           - "http://217.154.77.26:8080"
@@ -38,10 +39,6 @@ http:
           - "PUT"
           - "DELETE"
         accessControlAllowHeaders: "*"
-    strip-quiz-prefix:  # Neue Middleware
-      stripPrefix:
-        prefixes:
-          - "/quiz"
   routers:
     redirect-to-https:
       rule: "Host(`sebu-dev.de`)"
@@ -50,3 +47,4 @@ http:
       middlewares:
         - "https-redirect"
       service: "noop"
+      
